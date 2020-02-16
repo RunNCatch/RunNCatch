@@ -92,5 +92,8 @@ router.get('/results-edit/:id', (req, res, next) => {
 router.post('/results-edit/:id', (req, res, next) => {
   res.render('admin');
 });
+router.post('/results-edit/:id', (req, res, next) => {
+  res.render('admin');
+});
 
 module.exports = router;
