@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
-   <style>
-       #map {
-        height: 500px;
-        width: 100%;
-       }
-    </style>
+  <style>
+    #map {
+      height: 500px;
+      width: 100%;
+    }
+  </style>
 </head>
+
 <body>
 
   <nav>
@@ -23,9 +25,13 @@
   </nav>
 
   {{{body}}}
-
+  {{!-- <script src="/javascripts/readerqr/instascan.js"></script> --}}
+  {{!-- <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script> --}}
   <script src="/javascripts/script.js"></script>
+  <script src="/qr/jquery.min.js"></script>
+  <script src="/qr/qrcode.js"></script>
   <script src="/javascripts/qr.js"></script>
   <script src="/javascripts/scriptQr.js"></script>
 </body>
+
 </html>

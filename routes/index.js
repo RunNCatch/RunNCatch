@@ -1,6 +1,5 @@
 const express = require('express');
 const router  = express.Router();
-
 /* GET home page */
 // pantalla principal, boton superior para abrir el scaner de QR y boton central para geolocalizacion y redireccion a resultados y modo mapa
 router.get('/', (req, res, next) => {
@@ -8,6 +7,10 @@ router.get('/', (req, res, next) => {
 });
 
 //ruta qr
+
+router.get("/scanqr", (requ, res, next) =>{
+  res.render('readerqr');
+})
 
 router.get('/qr', (req, res, next) => {
   res.render('qr')
