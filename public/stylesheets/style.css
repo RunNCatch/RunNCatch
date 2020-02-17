@@ -45,7 +45,11 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+* {
+  box-sizing: border-box; }
+
 body {
+  background-color: black;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
@@ -53,17 +57,57 @@ a {
   color: #00B7FF; }
 
 .head {
+  margin: 15px;
   background-color: #FAFF00; }
   .head h1 {
-    font-size: 60px; }
+    font-size: 40px;
+    font-family: "Erica One";
+    text-align: center; }
+
+.menu {
+  margin: 15px;
+  display: flex;
+  flex: column;
+  justify-content: space-between;
+  align-items: center; }
+  .menu div {
+    width: 28vw;
+    height: 40px;
+    background-color: #FAFF00;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .menu a {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    text-align: center; }
 
 #map {
-  height: 600px;
+  height: 70vh;
   width: 100%; }
 
-#btn-init img {
-  width: 100px;
-  height: 100px; }
+#update-pos {
+  margin: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  #update-pos a {
+    font-size: 20px;
+    font-weight: bold;
+    color: #FAFF00;
+    text-align: center;
+    text-decoration: none; }
+
+#btn-init {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 180px; }
+  #btn-init img {
+    width: 200px;
+    height: 200px; }
 
 body,
 input {

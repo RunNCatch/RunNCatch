@@ -65,7 +65,6 @@ router.get("/results", (req, res, next) => {
     .then(eventsFound => {
       res.render("results", {
         event: eventsFound,
-        role: req.user.role
       });
     })
     .catch(err => {

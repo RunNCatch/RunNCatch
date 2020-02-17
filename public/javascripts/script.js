@@ -14,6 +14,7 @@ function startMap() {
     center: yourPosition,
     mapTypeControl: false,
     streetViewControl: false,
+    zoomControl: false,
     fullscreenControl: false,
     styles: [
       {
@@ -286,7 +287,6 @@ function startMap() {
           },
           map: map,
           title: "You are here.",
-          draggable: true,
           animation: google.maps.Animation.BOUNCE,
           icon: image
         });
@@ -312,7 +312,6 @@ function startMap() {
         },
         map: map,
         title: event.name,
-        draggable: true,
         animation: google.maps.Animation.DROP,
       });
     });
@@ -328,7 +327,9 @@ const markers = []
 
 startMap();
 
-
+document.querySelector("#update-pos").onclick = function (event) {
+  startMap();
+}
 
 // Inicio sesion Google
 
