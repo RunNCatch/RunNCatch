@@ -15,7 +15,11 @@ function startMap() {
   };
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 10,
-    center: ironhackBCN
+    center: ironhackBCN,
+    mapTypeControl: false,
+    streetViewControl: false,
+    fullscreenControl: false,
+    zoomControl: false,
   });
   const IronhackBCNMarker = new google.maps.Marker({
     position: {
