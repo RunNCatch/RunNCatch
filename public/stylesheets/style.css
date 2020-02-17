@@ -59,6 +59,8 @@ a {
 .head {
   margin: 15px;
   background-color: #FAFF00; }
+  .head :hover {
+    background-color: white; }
   .head h1 {
     font-size: 40px;
     font-family: "Erica One";
@@ -77,6 +79,8 @@ a {
     display: flex;
     justify-content: center;
     align-items: center; }
+  .menu div:hover {
+    background-color: white; }
   .menu a {
     font-size: 20px;
     font-weight: bold;

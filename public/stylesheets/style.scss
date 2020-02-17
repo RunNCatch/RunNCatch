@@ -66,6 +66,9 @@ a {
   margin: 15px;
   background-color: #FAFF00;
 
+  :hover{
+    background-color: white; 
+    }
   h1 {
     font-size: 40px;
     font-family: "Erica One";
@@ -87,6 +90,10 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  }
+
+  div:hover{
+  background-color: white; 
   }
 
   a {
