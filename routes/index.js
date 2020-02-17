@@ -36,15 +36,16 @@ router.get("/scan", checkAuthenticated(), (req, res, next) => {
 //esta url es a la que redirige el scan del QR, el ID es el de la base de datos de cada uno en MONGO. coge la informacion del usuario de la session y le hace un find and update con la info del evento. la vista scanResult te da la enhorabuena y te ofrece volver a los resultaods de ofertas y tal
 router.post("/scan/:id", checkAuthenticated(), (req, res, next) => {
   let userId = req.user.id;
-  let eventId = req.params.id; 
+  let eventId = req.params.id;
   let newEvent = {};
   let addEvent = {};
   Events.findById(eventId)
     .then(eventFound => {
       newEvent = eventFound;
-      addEvent = { 
-        punctuation = puntuaction + eventFound.punctuationReward,
-        events: events.push(eventFound) };
+      addEvent = {
+        punctuation: punctuation + eventFound.punctuationReward,
+        events: events.push(eventFound)
+      };
     })
     .then(user.findByIDandUpdate(userId, addEvent))
     .then(res.render("scanResult", { newEvent }))
@@ -159,7 +160,7 @@ router.get("/admin", checkRoles("Admin"), (req, res, next) => {
 });
 
 //recibe la info del formulario y crea nuevo evento
-router.post("/new-event",  checkRoles("Admin"), (req, res, next) => {
+router.post("/new-event", checkRoles("Admin"), (req, res, next) => {
   console.log(req.body);
   Events.create({
     name: req.body.name,
@@ -177,7 +178,7 @@ router.post("/new-event",  checkRoles("Admin"), (req, res, next) => {
 });
 
 //muestra el formulario de editar evento
-router.get("/edit-event/:id",  checkRoles("Admin"), (req, res, next) => {
+router.get("/edit-event/:id", checkRoles("Admin"), (req, res, next) => {
   Events.findById(req.params.id)
     .then(eventFound => {
       res.render("edit-event", {
@@ -219,12 +220,18 @@ router.post("/edit-event/:id", checkRoles("Admin"), (req, res, next) => {
 router.get("/all-users", checkRoles("Admin"), (req, res, next) => {
   Users.find()
     .then(usersFound => {
-      res.render("all-users", {usersFound});
+      res.render("all-users", { usersFound });
     })
     .catch(err => {
       console.error("Error connecting to mongo");
       next(err);
     });
+});
+
+router.post("/delete-user/:id", checkRoles("Admin"), (req, res, next) => {
+  Users.findByIdAndDelete(req.params.id).then(() => {
+    res.redirect("/all-users");
+  });
 });
 
 router.get("/eventsForAxios", (req, res, next) => {
