@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 const Event = require("../models/Events");
-const Offer = require("../models/Offers");
+
 
 const userSchema = new Schema({
   username: String,
@@ -10,8 +10,7 @@ const userSchema = new Schema({
   rol: {type: String, enum: ["Customer", "Admin"], default: "Customer"},
   punctuation: Number,
   level: Number,
-  events: [{type: Schema.Types.ObjectId, ref: "Events"}],
-  offers: [{type: Schema.Types.ObjectId, ref: "Offers"}]
+  events: [{type: Schema.Types.ObjectId, ref: "Events"}]
 }, {
   timestamps: {
     createdAt: 'created_at',

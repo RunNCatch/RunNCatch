@@ -7,7 +7,6 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
 const Event = require("../models/Events");
-const Offer = require("../models/Offers");
 const Event1Id = new mongoose.mongo.ObjectId();
 const Event2Id = new mongoose.mongo.ObjectId();
 const Event3Id = new mongoose.mongo.ObjectId();
@@ -46,8 +45,7 @@ let users = [
     rol: "Customer",
     punctuation: 1000,
     level: 1,
-    events: [Event3Id, Event4Id],
-    offers: [Offer1Id]
+    events: [Event3Id, Event4Id, Offer1Id]
   },
     {
     username: "julio",
@@ -56,8 +54,7 @@ let users = [
     rol: "Customer",
     punctuation: 2500,
     level: 3,
-    events: [],
-    offers: []
+    events: []
   },
   {
     username: "sara",
@@ -66,8 +63,7 @@ let users = [
     rol: "Customer",
     punctuation: 800,
     level: 1,
-    events: [],
-    offers: []
+    events: []
   },
   {
     username: "carlos",
@@ -76,8 +72,7 @@ let users = [
     rol: "Customer",
     punctuation: 1500,
     level: 2,
-    events: [],
-    offers: []
+    events: []
   }
 ];
 
@@ -85,12 +80,15 @@ let events = [
   {
     _id: Event1Id,
     name: "Retiro",
+    type: "Missions",
     description: "Ir a pasear por Retiro",
+    tag: "relax",
     start: new Date(2020, 02, 15, 20, 30, 0),
     duration: 120,
-    positionlat: 41,
-    positionlng: -3.79,
-    type: "relax",
+    location: {
+      type: "Point",
+      coordinates: [40.1925026, -3.7982764]
+      },
     punctuationReward: 100,
     image: "",
     qrCode: ""
@@ -98,12 +96,15 @@ let events = [
   {
     _id: Event2Id,
     name: "Visita Prado",
+    type: "Missions",
     description: "Ir a visitar Museo Prado",
+    tag: "culture",
     start: new Date(2020, 02, 15, 12, 0, 0),
     duration: 180,
-    positionlat: 41,
-    positionlng: -3.79,
-    type: "culture",
+    location: {
+      type: "Point",
+      coordinates: [40.8935047, -3.8082863]
+      },
     punctuationReward: 300,
     image: "",
     qrCode: ""
@@ -111,12 +112,15 @@ let events = [
   {
     _id: Event3Id,
     name: "Visita Caixa Forum",
+    type: "Missions",
     description: "Ir a visitar Caixa Forum",
+    tag: "culture",
     start: new Date(2020, 02, 17, 10, 0, 0),
     duration: 90,
-    positionlat: 41,
-    positionlng: -3.79,
-    type: "culture",
+    location: {
+      type: "Point",
+      coordinates: [40.3965646, -3.7062863]
+      },
     punctuationReward: 250,
     image: "",
     qrCode: ""
@@ -124,12 +128,15 @@ let events = [
   {
     _id: Event4Id,
     name: "Encontrar Plaza 2 Mayo",
+    type: "Missions",
     description: "Ir a Plaza 2 Mayo",
+    tag: "relax",
     start: new Date(2020, 02, 18, 16, 0, 0),
     duration: 50,
-    positionlat: 41,
-    positionlng: -3.89,
-    type: "relax",
+    location: {
+      type: "Point",
+      coordinates: [40.6478046, -3.6942763]
+      },
     punctuationReward: 100,
     image: "",
     qrCode: ""
@@ -137,29 +144,32 @@ let events = [
   {
     _id: Event5Id,
     name: "Visita Reina Sofia",
+    type: "Missions",
     description: "Ir a visitar Museo Reina Sofia",
+    tag: "culture",
     start: new Date(2020, 02, 19, 11, 0, 0),
     duration: 180,
-    positionlat: 41,
-    positionlng: -3.77,
-    type: "culture",
+    location: {
+      type: "Point",
+      coordinates: [40.4225046, -3.7742763]
+      },
     punctuationReward: 300,
     image: "",
     qrCode: ""
-  }
-];
-
-let offers = [
+  },
   {
     _id: Offer1Id,
     name: "Restaurante Migueli",
+    type: "Offers",
     description: "Descuento 50% menu degustacion 2 personas",
+    tag: "restoration",
     discount: 50,
     start: new Date(2020, 02, 20, 15, 0, 0),
     duration: 60,
-    positionlat: 41,
-    positionlng: -3.77,
-    type: "restoration",
+    location: {
+      type: "Point",
+      coordinates: [40.5525026, -3.7982743]
+      },
     levelRequiered: 1,
     punctuationReward: 50,
     image: "",
@@ -168,13 +178,16 @@ let offers = [
   {
     _id: Offer2Id,
     name: "Tienda Manoli",
+    type: "Offers",
     description: "Descuento 70% en todas las prendas",
+    tag: "shopping",
     discount: 70,
     start: new Date(2020, 02, 20, 15, 0, 0),
     duration: 30,
-    positionlat: 41,
-    positionlng: -3.78,
-    type: "shopping",
+    location: {
+      type: "Point",
+      coordinates: [40.4825043, -3.7882763]
+      },
     levelRequiered: 2,
     punctuationReward: 30,
     image: "",
@@ -183,13 +196,16 @@ let offers = [
   {
     _id: Offer3Id,
     name: "Tierra Burrita",
+    type: "Offers",
     description: "Descuento 40%",
+    tag: "restoration",
     discount: 40,
     start: new Date(2020, 02, 20, 21, 0, 0),
     duration: 30,
-    positionlat: 41,
-    positionlng: -3.77,
-    type: "restoration",
+    location: {
+      type: "Point",
+      coordinates: [40.5725046, -3.4882759]
+      },
     levelRequiered: 1,
     punctuationReward: 40,
     image: "",
@@ -198,13 +214,16 @@ let offers = [
   {
     _id: Offer4Id,
     name: "Carhatt Fuencarral",
+    type: "Offers",
     description: "Descuento 50% en todas las camisetas",
+    tag: "shopping",
     discount: 50,
     start: new Date(2020, 02, 17, 18, 0, 0),
     duration: 60,
-    positionlat: 41,
-    positionlng: -3.793,
-    type: "shopping",
+    location: {
+      type: "Point",
+      coordinates: [40.4825096, -3.6782763]
+      },
     levelRequiered: 3,
     punctuationReward: 70,
     image: "",
@@ -213,13 +232,16 @@ let offers = [
   {
     _id: Offer5Id,
     name: "Bacoa",
+    type: "Offers",
     description: "Descuento 50%",
+    tag: "shopping",
     discount: 50,
     start: new Date(2020, 02, 21, 20, 0, 0),
     duration: 120,
-    positionlat: 41.1,
-    positionlng: -3.72,
-    type: "shopping",
+    location: {
+      type: "Point",
+      coordinates: [40.3929040, -3.7682762]
+      },
     levelRequiered: 2,
     punctuationReward: 50,
     image: "",
@@ -243,15 +265,6 @@ Event.deleteMany()
   .then(eventsCreated => {
     console.log(`${eventsCreated.length} events created with the following id:`);
     console.log(eventsCreated.map(u => u._id));
-  });
-
-Offer.deleteMany()
-  .then(() => {
-    return Offer.create(offers);
-  })
-  .then(offersCreated => {
-    console.log(`${offersCreated.length} offers created with the following id:`);
-    console.log(offersCreated.map(u => u._id));
   })
   .then(() => {
     mongoose.disconnect();
