@@ -74,6 +74,7 @@ router.get("/results", (req, res, next) => {
     });
 });
 
+
 //renderiza solo el resultado de un evento cuando haces click, si eres admin te sale el codigo QR
 router.get("/results/:id", (req, res, next) => {
   Events.findById(req.params.id)
