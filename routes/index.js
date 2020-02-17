@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const Events = require("../models/Events");
 
 function checkRoles(role) {
   return function(req, res, next) {
@@ -120,6 +121,15 @@ router.post("/results-edit/:id", (req, res, next) => {
 });
 router.post("/results-edit/:id", (req, res, next) => {
   res.render("admin");
+});
+
+router.get("/eventsForAxios", (req, res, next) => {
+  Events.find()
+    .then(eventsFound => res.json(eventsFound))
+    .catch(err => {
+      console.error("Error connecting to mongo");
+      next(err);
+    });
 });
 
 module.exports = router;

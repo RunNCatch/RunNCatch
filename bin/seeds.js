@@ -85,8 +85,10 @@ let events = [
     tag: "relax",
     start: new Date(2020, 02, 15, 20, 30, 0),
     duration: 120,
-    positionlat: 41,
-    positionlng: -3.79,
+    location: {
+      type: "Point",
+      coordinates: [40.1925026, -3.7982764]
+      },
     punctuationReward: 100,
     image: "",
     qrCode: ""
@@ -99,8 +101,10 @@ let events = [
     tag: "culture",
     start: new Date(2020, 02, 15, 12, 0, 0),
     duration: 180,
-    positionlat: 41,
-    positionlng: -3.79,
+    location: {
+      type: "Point",
+      coordinates: [40.8935047, -3.8082863]
+      },
     punctuationReward: 300,
     image: "",
     qrCode: ""
@@ -113,8 +117,10 @@ let events = [
     tag: "culture",
     start: new Date(2020, 02, 17, 10, 0, 0),
     duration: 90,
-    positionlat: 41,
-    positionlng: -3.79,
+    location: {
+      type: "Point",
+      coordinates: [40.3965646, -3.7062863]
+      },
     punctuationReward: 250,
     image: "",
     qrCode: ""
@@ -127,8 +133,10 @@ let events = [
     tag: "relax",
     start: new Date(2020, 02, 18, 16, 0, 0),
     duration: 50,
-    positionlat: 41,
-    positionlng: -3.89,
+    location: {
+      type: "Point",
+      coordinates: [40.6478046, -3.6942763]
+      },
     punctuationReward: 100,
     image: "",
     qrCode: ""
@@ -141,8 +149,10 @@ let events = [
     tag: "culture",
     start: new Date(2020, 02, 19, 11, 0, 0),
     duration: 180,
-    positionlat: 41,
-    positionlng: -3.77,
+    location: {
+      type: "Point",
+      coordinates: [40.4225046, -3.7742763]
+      },
     punctuationReward: 300,
     image: "",
     qrCode: ""
@@ -156,8 +166,10 @@ let events = [
     discount: 50,
     start: new Date(2020, 02, 20, 15, 0, 0),
     duration: 60,
-    positionlat: 41,
-    positionlng: -3.77,
+    location: {
+      type: "Point",
+      coordinates: [40.5525026, -3.7982743]
+      },
     levelRequiered: 1,
     punctuationReward: 50,
     image: "",
@@ -172,8 +184,10 @@ let events = [
     discount: 70,
     start: new Date(2020, 02, 20, 15, 0, 0),
     duration: 30,
-    positionlat: 41,
-    positionlng: -3.78,
+    location: {
+      type: "Point",
+      coordinates: [40.4825043, -3.7882763]
+      },
     levelRequiered: 2,
     punctuationReward: 30,
     image: "",
@@ -188,8 +202,10 @@ let events = [
     discount: 40,
     start: new Date(2020, 02, 20, 21, 0, 0),
     duration: 30,
-    positionlat: 41,
-    positionlng: -3.77,
+    location: {
+      type: "Point",
+      coordinates: [40.5725046, -3.4882759]
+      },
     levelRequiered: 1,
     punctuationReward: 40,
     image: "",
@@ -204,8 +220,10 @@ let events = [
     discount: 50,
     start: new Date(2020, 02, 17, 18, 0, 0),
     duration: 60,
-    positionlat: 41,
-    positionlng: -3.793,
+    location: {
+      type: "Point",
+      coordinates: [40.4825096, -3.6782763]
+      },
     levelRequiered: 3,
     punctuationReward: 70,
     image: "",
@@ -220,8 +238,10 @@ let events = [
     discount: 50,
     start: new Date(2020, 02, 21, 20, 0, 0),
     duration: 120,
-    positionlat: 41.1,
-    positionlng: -3.72,
+    location: {
+      type: "Point",
+      coordinates: [40.3929040, -3.7682762]
+      },
     levelRequiered: 2,
     punctuationReward: 50,
     image: "",
