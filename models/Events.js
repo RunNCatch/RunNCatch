@@ -3,13 +3,15 @@ const Schema   = mongoose.Schema;
 
 const eventSchema = new Schema({
   name: String,
+  type: {type: String, enum: ["Offers", "Missions"]},
   description: String,
-  duration: Number,
-  state: Boolean, //Para Maria, que se muestre en Maps o no pero siempre esté en BD 
+  tag: {type: String, enum: ["culture", "relax", "restoration", "shopping"]},
+  discount: Number,
   start: Date,
+  duration: Number,
   positionlat: {type: String, default: 41},
   positionlng: {type: String, default: -3.79},
-  type: {type: String, enum: ["culture", "relax"]},
+  levelRequiered: Number,
   punctuationReward: Number,
   image: String, //Faltaria poner la hora de inicio
   qrCode: String

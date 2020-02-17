@@ -9,22 +9,22 @@ document.addEventListener(
 //Prueba Maps Geolocalizacion
 
 function startMap() {
-  const ironhackBCN = {
-    lat: 41.3977381,
-    lng: -3.790471916
+  const yourPosition = {
+    lat: 40.3925046,
+    lng: -3.6982763
   };
   const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 10,
-    center: ironhackBCN
+    zoom: 13,
+    center: yourPosition
   });
-  const IronhackBCNMarker = new google.maps.Marker({
-    position: {
-      lat: ironhackBCN.lat,
-      lng: ironhackBCN.lng
-    },
-    map: map,
-    title: "I'm here"
-  });
+  // const YourPositionMarker = new google.maps.Marker({
+  //   position: {
+  //     lat: yourPosition.lat,
+  //     lng: yourPosition.lng
+  //   },
+  //   map: map,
+  //   title: "I'm here"
+  // });
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
@@ -38,7 +38,7 @@ function startMap() {
         map.setCenter(user_location);
 
         // Add a marker for your user location
-        const ironhackBCNMarker = new google.maps.Marker({
+        const yourPositionMarker = new google.maps.Marker({
           position: {
             lat: user_location.lat,
             lng: user_location.lng
