@@ -32,4 +32,9 @@ label {
   height: 1px;
   opacity: 0; }
 
+#qrcode {
+  width: 160px;
+  height: 160px;
+  margin-top: 15px; }
+
 /*# sourceMappingURL=style.css.map */

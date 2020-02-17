@@ -7,6 +7,11 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
+//ruta qr
+
+router.get('/qr', (req, res, next) => {
+  res.render('qr')
+});
 //si no estas logged te reenvia a login
 //scaner de qr con permiso de la camara. tambien tiene un boton de back. 
 router.get('/scan', (req, res, next) => {
