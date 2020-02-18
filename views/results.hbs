@@ -7,3 +7,37 @@
 </div>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<div class="list results">
+  <form action="/results" method="POST">
+    <div class="filter">
+      <input name="filter" type="text" class="form-control" id="filter-input">
+    </div>
+  </form>
+  {{#each events}}
+  <a href="/results/{{_id}}" class="">
+    <div class="list element">
+      <div class="list info">
+        <div class="list picture">
+          <img src={{image}} />
+        </div>
+        <div class="list name">
+          <h3>{{name}}</h3>
+        </div>
+      </div>
+  </a>
+  <div class="list buttons">
+    <a href="/delete-event/{{_id}}">
+      <div class="list-delete button">
+        <h3>DELETE</h3>
+      </div>
+    </a>
+    <a href="/edit-event/{{_id}}">
+      <div class="list-edit button">
+        <h3>EDIT</h3>
+      </div>
+    </a>
+  </div>
+</div>
+{{/each}}
+</div>
