@@ -2,6 +2,11 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("IronGenerator JS imported successfully!");
   },false);
 
+  // window.onload = () => {
+  //   document.querySelector(".map").style.display= "block";
+  //   document.querySelector("#lista").style.display= "none"
+  // }
+
 //Prueba Maps Geolocalizacion
 
 function startMap() {
@@ -327,9 +332,31 @@ const markers = []
 
 startMap();
 
+//QuerySelector para onclick actualizar la localizacion sin necesidad de recargar
 document.querySelector("#update-pos").onclick = function (event) {
   startMap();
-}
+};
+
+// Query para cambiar vista de Mapa a Listado y viceversa
+document.querySelector(".click-maps").onclick = function (event) {
+  alert("Hola")
+  document.getElementsByClassName("map").style.display= "block";
+  document.getElementById("lista").style.display= "none"
+};
+
+document.querySelector(".click-list").onclick = function (event) {
+  alert("No me cambias")
+  document.getElementsByClassName("map").style.display= "none";
+  document.getElementById("lista").style.display= "block"
+};
+
+
+
+
+
+
+
+
 
 // Inicio sesion Google
 

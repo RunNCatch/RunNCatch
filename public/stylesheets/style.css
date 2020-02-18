@@ -131,6 +131,7 @@ table {
 
 body {
   background-color: black;
+  color: white;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
@@ -174,6 +175,12 @@ a {
   height: 70vh;
   width: 100%; }
 
+.map {
+  display: block; }
+
+#lista {
+  display: none; }
+
 #update-pos {
   margin: 15px;
   display: flex;
@@ -215,7 +222,7 @@ a {
   margin-top: 180px; }
   #btn-init img {
     width: 200px;
-    height: 200px; }
+    height: 180px; }
 
 body,
 input {

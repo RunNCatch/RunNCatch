@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 // const http = require('http');
-const https = require("https");
+const http = require("http");
 const fs = require("fs");
 var path = require("path");
 
@@ -24,11 +24,11 @@ app.use((err, req, res, next) => {
   }
 });
 
-let server = https.createServer(
-  {
-    key: fs.readFileSync(path.resolve("bin/server.key")),
-    cert: fs.readFileSync(path.resolve("bin/server.cert"))
-  },
+let server = http.createServer(
+  // {
+  //   key: fs.readFileSync(path.resolve("bin/server.key")),
+  //   cert: fs.readFileSync(path.resolve("bin/server.cert"))
+  // },
   app
 );
 

@@ -1,14 +1,13 @@
 <h1>Mapa o Listado</h1>
-
-<div id="map"></div>
-
-<div id="update-pos">
-  <a href=""><div>UPDATE POSITION</div></a>
+<div class="map">
+  <div id="map"></div>
+  <div id="update-pos">
+    <a><div>UPDATE POSITION</div></a>
+  </div>
 </div>
 
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-<div class="list results">
+<div class="list results" id="lista">
   <form action="/results" method="POST">
     <div class="filter">
       <input name="filter" type="text" class="form-control" id="filter-input">
@@ -40,4 +39,6 @@
   </div>
 </div>
 {{/each}}
-</div>
+
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
