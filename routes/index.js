@@ -37,6 +37,14 @@ router.get("/", (req, res, next) => {
 router.get("/scan", checkAuthenticated(), (req, res, next) => {
   res.render("scan");
 });
+
+router.get("/scanqr", (requ, res, next) => {
+  res.render('readqr');
+})
+router.get('/qr', (req, res, next) => {
+  res.render('qr')
+})
+
 //esta url es a la que redirige el scan del QR, el ID es el de la base de datos de cada uno en MONGO. coge la informacion del usuario de la session y le hace un find and update con la info del evento. la vista scanResult te da la enhorabuena y te ofrece volver a los resultaods de ofertas y tal
 router.post("/scan/:id", checkAuthenticated(), (req, res, next) => {
   let userId = req.user.id;
