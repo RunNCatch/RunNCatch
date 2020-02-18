@@ -9,7 +9,7 @@ const Events = require("../models/Events");
 //ruta qr
 
 router.get("/scanqr", (requ, res, next) => {
-  res.render('readerqr');
+  res.render('readqr');
 })
 
 router.get('/qr', (req, res, next) => {
@@ -30,6 +30,14 @@ router.get('/qr', (req, res, next) => {
 //     };
 //   }
 
+function checkRoles(role) {
+      return function (req, res, next) {
+        if (req.isAuthenticated() && req.user.role === role) {
+          return next();
+        } else {
+          res.redirect("/auth/login");
+        }
+      }};
   function checkAuthenticated() {
     return function (req, res, next) {
       if (req.isAuthenticated()) {
@@ -82,7 +90,7 @@ router.get('/qr', (req, res, next) => {
       .then(eventsFound => {
         res.render("results", {
           event: eventsFound,
-          role: req.user.role
+          // role: req.user.role
         });
       })
       .catch(err => {
