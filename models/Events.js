@@ -9,8 +9,6 @@ const eventSchema = new Schema({
   discount: Number,
   start: Date,
   duration: Number,
-  // positionlat: {type: String, default: 41},
-  // positionlng: {type: String, default: -3.79},
   location: { type: { type: String }, coordinates: [Number] },
   levelRequiered: Number,
   punctuationReward: Number,

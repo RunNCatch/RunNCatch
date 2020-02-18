@@ -17,6 +17,11 @@ const Offer2Id = new mongoose.mongo.ObjectId();
 const Offer3Id = new mongoose.mongo.ObjectId();
 const Offer4Id = new mongoose.mongo.ObjectId();
 const Offer5Id = new mongoose.mongo.ObjectId();
+const Offer6Id = new mongoose.mongo.ObjectId();
+const Offer7Id = new mongoose.mongo.ObjectId();
+const Offer8Id = new mongoose.mongo.ObjectId();
+const Offer9Id = new mongoose.mongo.ObjectId();
+const Offer10Id = new mongoose.mongo.ObjectId();
 
 const bcryptSalt = 10;
 
@@ -33,46 +38,55 @@ mongoose
 
 let users = [
   {
-    username: "pedro",
+    username: "Pedro",
     email: "pcramos19@gmail.com",
     password: bcrypt.hashSync("pedro", bcrypt.genSaltSync(bcryptSalt)),
     rol: "Admin"
   },
   {
-    username: "alejandro",
+    username: "Alejandro",
     email: "alejandrosz@gmail.com",
     password: bcrypt.hashSync("alejandro", bcrypt.genSaltSync(bcryptSalt)),
     rol: "Customer",
-    punctuation: 1000,
-    level: 1,
-    events: [Event3Id, Event4Id, Offer1Id]
+    punctuation: 4100,
+    level: 5,
+    events: [Event3Id, Event4Id, Event1Id, Offer3Id, Offer1Id]
   },
-    {
-    username: "julio",
+  {
+    username: "Julio",
     email: "julio@gmail.com",
     password: bcrypt.hashSync("julio", bcrypt.genSaltSync(bcryptSalt)),
     rol: "Customer",
     punctuation: 2500,
     level: 3,
-    events: []
+    events: [Offer5Id, Offer2Id]
   },
   {
-    username: "sara",
+    username: "Sara",
     email: "sara@gmail.com",
     password: bcrypt.hashSync("sara", bcrypt.genSaltSync(bcryptSalt)),
     rol: "Customer",
-    punctuation: 800,
-    level: 1,
-    events: []
+    punctuation: 1800,
+    level: 2,
+    events: [Event5Id, Event2Id, Event3Id, Offer4Id]
   },
   {
-    username: "carlos",
+    username: "Carlos",
     email: "carlos@gmail.com",
     password: bcrypt.hashSync("carlos", bcrypt.genSaltSync(bcryptSalt)),
     rol: "Customer",
     punctuation: 1500,
     level: 2,
-    events: []
+    events: [Offer2Id, Event4Id]
+  },
+  {
+    username: "Pedro Sanchez",
+    email: "psanchez@gmail.com",
+    password: bcrypt.hashSync("psanchez", bcrypt.genSaltSync(bcryptSalt)),
+    rol: "Customer",
+    punctuation: 800,
+    level: 1,
+    events: [Event5Id, Event2Id]  
   }
 ];
 
@@ -87,7 +101,7 @@ let events = [
     duration: 120,
     location: {
       type: "Point",
-      coordinates: [40.1925026, -3.7982764]
+      coordinates: [40.4080326, -3.693607]
       },
     punctuationReward: 100,
     image: "",
@@ -103,7 +117,7 @@ let events = [
     duration: 180,
     location: {
       type: "Point",
-      coordinates: [40.8935047, -3.8082863]
+      coordinates: [40.4137859, -3.6943158]
       },
     punctuationReward: 300,
     image: "",
@@ -119,7 +133,7 @@ let events = [
     duration: 90,
     location: {
       type: "Point",
-      coordinates: [40.3965646, -3.7062863]
+      coordinates: [40.411114, -3.6957623]
       },
     punctuationReward: 250,
     image: "",
@@ -135,7 +149,7 @@ let events = [
     duration: 50,
     location: {
       type: "Point",
-      coordinates: [40.6478046, -3.6942763]
+      coordinates: [40.4267107, -3.7062943]
       },
     punctuationReward: 100,
     image: "",
@@ -151,7 +165,7 @@ let events = [
     duration: 180,
     location: {
       type: "Point",
-      coordinates: [40.4225046, -3.7742763]
+      coordinates: [40.4074259, -3.6958381]
       },
     punctuationReward: 300,
     image: "",
@@ -159,7 +173,7 @@ let events = [
   },
   {
     _id: Offer1Id,
-    name: "Restaurante Migueli",
+    name: "Restaurante DiverXO",
     type: "Offers",
     description: "Descuento 50% menu degustacion 2 personas",
     tag: "restoration",
@@ -168,10 +182,10 @@ let events = [
     duration: 60,
     location: {
       type: "Point",
-      coordinates: [40.5525026, -3.7982743]
+      coordinates: [40.4581532, -3.6881661]
       },
-    levelRequiered: 1,
-    punctuationReward: 50,
+    levelRequiered: 4,
+    punctuationReward: 150,
     image: "",
     qrCode: ""
   },
@@ -186,7 +200,7 @@ let events = [
     duration: 30,
     location: {
       type: "Point",
-      coordinates: [40.4825043, -3.7882763]
+      coordinates: [40.4238036, -3.6836985]
       },
     levelRequiered: 2,
     punctuationReward: 30,
@@ -195,7 +209,7 @@ let events = [
   },
   {
     _id: Offer3Id,
-    name: "Tierra Burrita",
+    name: "Tierra Burrito",
     type: "Offers",
     description: "Descuento 40%",
     tag: "restoration",
@@ -204,7 +218,7 @@ let events = [
     duration: 30,
     location: {
       type: "Point",
-      coordinates: [40.5725046, -3.4882759]
+      coordinates: [40.4360673, -3.7151283]
       },
     levelRequiered: 1,
     punctuationReward: 40,
@@ -222,7 +236,7 @@ let events = [
     duration: 60,
     location: {
       type: "Point",
-      coordinates: [40.4825096, -3.6782763]
+      coordinates: [40.423084, -3.7025196]
       },
     levelRequiered: 3,
     punctuationReward: 70,
@@ -240,9 +254,99 @@ let events = [
     duration: 120,
     location: {
       type: "Point",
-      coordinates: [40.3929040, -3.7682762]
+      coordinates: [40.416796, -3.7038842]
       },
     levelRequiered: 2,
+    punctuationReward: 50,
+    image: "",
+    qrCode: ""
+  },
+  {
+    _id: Offer6Id,
+    name: "Tour Wanda Metropolitano",
+    type: "Offers",
+    description: "Descuento 30%",
+    tag: "shopping",
+    discount: 30,
+    start: new Date(2020, 02, 22, 11, 0, 0),
+    duration: 180,
+    location: {
+      type: "Point",
+      coordinates: [40.4361939, -3.5994674]
+      },
+    levelRequiered: 2,
+    punctuationReward: 100,
+    image: "",
+    qrCode: ""
+  },
+  {
+    _id: Offer7Id,
+    name: "Teatro Flamenco",
+    type: "Offers",
+    description: "Descuento 48%",
+    tag: "culture",
+    discount: 48,
+    start: new Date(2020, 02, 23, 20, 0, 0),
+    duration: 120,
+    location: {
+      type: "Point",
+      coordinates: [40.4232417, -3.7045222]
+      },
+    levelRequiered: 1,
+    punctuationReward: 80,
+    image: "",
+    qrCode: ""
+  },
+  {
+    _id: Offer8Id,
+    name: "Social Dental Studio",
+    type: "Offers",
+    description: "Descuento 80%",
+    tag: "shopping",
+    discount: 80,
+    start: new Date(2020, 02, 21, 09, 0, 0),
+    duration: 180,
+    location: {
+      type: "Point",
+      coordinates: [40.4337335, -3.69915]
+      },
+    levelRequiered: 1,
+    punctuationReward: 50,
+    image: "",
+    qrCode: ""
+  },
+  {
+    _id: Offer9Id,
+    name: "Museo de Cera",
+    type: "Offers",
+    description: "Descuento 50%",
+    tag: "culture",
+    discount: 50,
+    start: new Date(2020, 02, 21, 12, 0, 0),
+    duration: 240,
+    location: {
+      type: "Point",
+      coordinates: [40.4250731, -3.6935499]
+      },
+    levelRequiered: 2,
+    punctuationReward: 80,
+    image: "",
+    qrCode: ""
+  },
+  {
+    _id: Offer10Id,
+    name: "La Belleza Del Masaje",
+    type: "Offers",
+    description: "Descuento 50%",
+    tag: "shopping",
+    discount: 50,
+    start: new Date(2020, 02, 21, 12, 0, 0),
+    duration: 180,
+    location: {
+      type: "Point",
+      coordinates: [40.4299443, -3.7100101]
+      },
+    levelRequiered: 1,
     punctuationReward: 50,
     image: "",
     qrCode: ""
