@@ -173,14 +173,17 @@ router.get("/admin", checkRoles("Admin"), (req, res, next) => {
   res.render("new-event");
 });
 
+let lat, lng
 //recibe la info del formulario y crea nuevo evento
 router.post("/new-event", checkRoles("Admin"), (req, res, next) => {
   console.log(req.body);
   geocoder.geocode(req.body.location, function(err, res) {
+    lat = res[0].latitude
+    lng = res[0].longitude
     console.log("lat", res[0].latitude, "lng", res[0].longitude);
   });
-  
-  location: { type: "Point", coordinates: [lat, lng] },
+  let location = { type: "Point", coordinates: [lat, lng] }
+  console.log(location)
   Events.create({
     name: req.body.name,
     description: req.body.description,
