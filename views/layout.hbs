@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,11 @@
   <link href="https://fonts.googleapis.com/css?family=Erica+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/stylesheets/style.css" />
-   <style>
-  
+  <style>
+    #map {
+      height: 500px;
+      width: 100%;
+    }
   </style>
 </head>
 
@@ -27,9 +31,21 @@
   </div>
 
   {{{body}}}
+  {{!-- <script src="/javascripts/readerqr/instascan.js"></script> --}}
+  {{!-- <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script> --}}
+  {{!-- scritps scan --}}
+  <script src="/public/scanqr/qr-scanner-master/src/worker.js"></script>
+  <script src="/public/scanqr/qr-scanner-master/src/qr-scanner.js"></script>
+  <script src="/public/scanqr/qr-scanner-master/qr-scanner-worker.min.js"></script>
+  <script src="/public/scanqr/qr-scanner-master/qr-scanner-worker.min.js.map"></script>
+  <script src="/public/scanqr/qr-scanner-master/qr-scanner.min.js"></script>
+  <script src="/public/scanqr/qr-scanner-master/qr-scanner.min.js.map"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_62uCU28_3t0RlV0WVDdrGSg0xG0v4j4"></script>
   <script src="/javascripts/script.js"></script>
+  <script src="/qr/jquery.min.js"></script>
+  <script src="/qr/qrcode.js"></script>
   <script src="/javascripts/qr.js"></script>
   <script src="/javascripts/scriptQr.js"></script>
 </body>
-</html>
+
+</html> 
