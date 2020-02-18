@@ -2,10 +2,22 @@ const express = require("express");
 const router = express.Router();
 const Users = require("../models/User");
 const Events = require("../models/Events");
+var NodeGeocoder = require("node-geocoder");
 
-function checkRoles(role) {
+var options = {
+  provider: "google",
+
+  // Optional depending on the providers
+  httpAdapter: "https", // Default
+  apiKey: "AIzaSyD_62uCU28_3t0RlV0WVDdrGSg0xG0v4j4", // for Mapquest, OpenCage, Google Premier
+  formatter: null // 'gpx', 'string', ...
+};
+
+var geocoder = NodeGeocoder(options);
+
+function checkRoles(rol) {
   return function(req, res, next) {
-    if (req.isAuthenticated() && req.user.role === role) {
+    if (req.isAuthenticated() && req.user.rol === rol) {
       return next();
     } else {
       res.redirect("/auth/login");
@@ -64,8 +76,8 @@ router.get("/results", (req, res, next) => {
   Events.find()
     .then(eventsFound => {
       res.render("results", {
-        event: eventsFound,
-        role: req.user.role
+        events: eventsFound,
+        rol: req.user.rol
       });
     })
     .catch(err => {
@@ -74,14 +86,13 @@ router.get("/results", (req, res, next) => {
     });
 });
 
-
 //renderiza solo el resultado de un evento cuando haces click, si eres admin te sale el codigo QR
 router.get("/results/:id", (req, res, next) => {
   Events.findById(req.params.id)
     .then(eventFound => {
       res.render("results-detail", {
         event: eventFound,
-        role: req.user.role
+        rol: req.user.rol
       });
     })
     .catch(err => {
@@ -98,7 +109,9 @@ router.post("/results", (req, res, next) => {
   Events.find({
     $or: [{ name: filter }, { description: filter }, { type: filter }]
   })
-    .then(eventsFound => res.render("results", { eventsFound }))
+    .then(eventsFound =>
+      res.render("results", { events: eventsFound, rol: req.user.rol })
+    )
     .catch(err => {
       console.error("Error connecting to mongo");
       next(err);
@@ -118,7 +131,7 @@ router.get("/profile/:id", checkAuthenticated(), (req, res, next) => {
     .then(userFound =>
       res.render("profile", {
         user: userFound,
-        role: req.user.role
+        rol: req.user.rol
       })
     )
     .catch(err => {
@@ -133,7 +146,7 @@ router.get("/profile/edit/:id", (req, res, next) => {
     .then(userFound =>
       res.render("profile-edit", {
         user: userFound,
-        role: req.user.role
+        rol: req.user.rol
       })
     )
     .catch(err => {
@@ -163,6 +176,11 @@ router.get("/admin", checkRoles("Admin"), (req, res, next) => {
 //recibe la info del formulario y crea nuevo evento
 router.post("/new-event", checkRoles("Admin"), (req, res, next) => {
   console.log(req.body);
+  geocoder.geocode(req.body.location, function(err, res) {
+    console.log("lat", res[0].latitude, "lng", res[0].longitude);
+  });
+  
+  location: { type: "Point", coordinates: [lat, lng] },
   Events.create({
     name: req.body.name,
     description: req.body.description,
@@ -171,8 +189,7 @@ router.post("/new-event", checkRoles("Admin"), (req, res, next) => {
     type: req.body.type,
     punctuacionReward: req.body.punctuationReward,
     image: req.body.url, // meter el multer
-    positionlat: req.body.positionlat,
-    positionlng: req.body.positionlng
+    location: location,
   }).then(() => {
     res.redirect("/admin");
   });
@@ -184,7 +201,7 @@ router.get("/edit-event/:id", checkRoles("Admin"), (req, res, next) => {
     .then(eventFound => {
       res.render("edit-event", {
         event: eventFound,
-        role: req.user.role
+        rol: req.user.rol
       });
     })
     .catch(err => {
@@ -194,7 +211,7 @@ router.get("/edit-event/:id", checkRoles("Admin"), (req, res, next) => {
 });
 
 //elimina eventos
-router.post("/results-delete/:id", checkRoles("Admin"), (req, res, next) => {
+router.get("/delete-event/:id", checkRoles("Admin"), (req, res, next) => {
   Events.findByIdAndDelete(req.params.id).then(() => {
     res.redirect("/results");
   });

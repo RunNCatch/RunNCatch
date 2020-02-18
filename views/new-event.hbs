@@ -1,0 +1,32 @@
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_62uCU28_3t0RlV0WVDdrGSg0xG0v4j4"></script>
+
+<div>
+  <form action="/new-event" method="POST" class="new-form">
+    <input name="name" type="text" class="form-control" id="name-input" placeholder="name">
+    <input name="description" type="text" class="form-control" id="description-input" placeholder="description">
+    <input type="datetime-local" id="meeting-time" name="start" value="2018-06-12T19:30" min="2018-06-07T00:00"
+      max="2018-06-14T00:00">
+    <input name="duration" type="number" class="form-control" id="inversions-input" placeholder="duration min">
+    <select name="type">
+      <option value="Offers">Offers</option>
+      <option value="Missions">Missions</option>
+    </select>
+    <input name="location" type="text" class="form-control" id="length-input" placeholder="location">
+    <input name="punctuationReward" type="number" class="form-control" id="length-input"
+      placeholder="punctuationReward">
+    <input name="levelRequiered" type="number" class="form-control" id="length-input" placeholder="levelRequiered">
+    <input name="discount" type="number" class="form-control" id="length-input" placeholder="discount">
+    <input name="image" type="text" class="form-control" id="length-input" placeholder="image url">
+    <button type="submit" class="btn btn-dark">Create event</button>
+  </form>
+</div>
+
+{{!-- name: req.body.name,
+description: req.body.description,
+duration: req.body.duration,
+start: req.body.start,
+type: req.body.type,
+punctuacionReward: req.body.punctuationReward,
+image: req.body.url, // meter el multer
+positionlat: req.body.positionlat,
+positionlng: req.body.positionlng --}}
