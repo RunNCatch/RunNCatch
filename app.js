@@ -14,7 +14,7 @@ const flash = require("connect-flash");
 // const secure = require("express-force-https");
 
 mongoose
-  .connect('mongodb://localhost/Run-Catch', { useNewUrlParser: true })
+  .connect(`${process.env.DBURL}`, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
