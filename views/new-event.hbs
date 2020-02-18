@@ -3,14 +3,18 @@
 <div>
   <form action="/new-event" method="POST" class="new-form">
     <input name="name" type="text" class="form-control" id="name-input" placeholder="name">
-    <input name="description" type="text" class="form-control" id="description-input" placeholder="description">
-    <input type="datetime-local" id="meeting-time" name="start" value="2018-06-12T19:30" min="2018-06-07T00:00"
-      max="2018-06-14T00:00">
-    <input name="duration" type="number" class="form-control" id="inversions-input" placeholder="duration min">
     <select name="type">
       <option value="Offers">Offers</option>
       <option value="Missions">Missions</option>
     </select>
+    <input name="description" type="text" class="form-control" id="description-input" placeholder="description">
+    <input type="datetime-local" id="meeting-time" name="start" value="2018-06-12T19:30" min="2018-06-07T00:00"
+      max="2018-06-14T00:00">
+    <select name="tag">
+      <option value="Offers">Offers</option>
+      <option value="Missions">Missions</option>
+    </select>
+    <input name="duration" type="number" class="form-control" id="inversions-input" placeholder="duration min">
     <input name="location" type="text" class="form-control" id="length-input" placeholder="location">
     <input name="punctuationReward" type="number" class="form-control" id="length-input"
       placeholder="punctuationReward">
