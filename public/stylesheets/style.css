@@ -61,10 +61,11 @@ a {
   background-color: #FAFF00; }
   .head :hover {
     background-color: white; }
-  .head h1 {
+  .head a {
     font-size: 40px;
     font-family: "Erica One";
-    text-align: center; }
+    text-align: center;
+    color: black; }
 
 .menu {
   margin: 15px;
