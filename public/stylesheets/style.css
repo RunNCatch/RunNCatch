@@ -130,8 +130,11 @@ table {
   box-sizing: border-box; }
 
 body {
+<<<<<<< HEAD
   background-color: black;
   color: white;
+=======
+>>>>>>> ba229adc41d0a8af2ff833a625f76fa1118b25f7
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 

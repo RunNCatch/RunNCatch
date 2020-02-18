@@ -6,9 +6,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 <script type="text/javascript" src="jquery.min.js"></script>
 <script type="text/javascript" src="qrcode.js"></script>
+<link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
-<input id="text" type="text" value="http://jindo.dev.naver.com/collie" style="width:80%" /><br />
+<input id="text" type="text" value="{{id}}" style="width:80%" /><br />
 <div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div>
 
 <script type="text/javascript">
@@ -21,7 +22,7 @@ function makeCode () {
 	var elText = document.getElementById("text");
 	
 	if (!elText.value) {
-		alert("Input a text");
+		
 		elText.focus();
 		return;
 	}
