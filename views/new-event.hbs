@@ -8,11 +8,13 @@
       <option value="Missions">Missions</option>
     </select>
     <input name="description" type="text" class="form-control" id="description-input" placeholder="description">
-    <input type="datetime-local" id="meeting-time" name="start" value="2018-06-12T19:30" min="2018-06-07T00:00"
-      max="2018-06-14T00:00">
+    <input type="datetime-local" id="meeting-time" name="start" value="2020-02-21T19:30" min="2020-01-01T00:00"
+      max="2020-12-31T00:00">
     <select name="tag">
-      <option value="Offers">Offers</option>
-      <option value="Missions">Missions</option>
+      <option value="culture">culture</option>
+      <option value="relax">relax</option>
+      <option value="restoration">restoration</option>
+      <option value="shopping">shopping</option>
     </select>
     <input name="duration" type="number" class="form-control" id="inversions-input" placeholder="duration min">
     <input name="location" type="text" class="form-control" id="length-input" placeholder="location">
@@ -24,6 +26,7 @@
     <button type="submit" class="btn btn-dark">Create event</button>
   </form>
 </div>
+
 
 {{!-- name: req.body.name,
 description: req.body.description,

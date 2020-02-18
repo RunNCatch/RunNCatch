@@ -7,7 +7,6 @@ var NodeGeocoder = require("node-geocoder");
 var options = {
   provider: "google",
 
-  // Optional depending on the providers
   httpAdapter: "https", // Default
   apiKey: "AIzaSyD_62uCU28_3t0RlV0WVDdrGSg0xG0v4j4", // for Mapquest, OpenCage, Google Premier
   formatter: null // 'gpx', 'string', ...
@@ -35,7 +34,7 @@ function checkAuthenticated() {
   };
 }
 
-//boton superior para abrir el scaner de QR y boton central para geolocalizacion y redireccion a resultados y modo mapa
+//FUNCIONAboton superior para abrir el scaner de QR y boton central para geolocalizacion y redireccion a resultados y modo mapa
 router.get("/", (req, res, next) => {
   res.render("index");
 });
@@ -77,7 +76,7 @@ router.get("/results", (req, res, next) => {
     .then(eventsFound => {
       res.render("results", {
         events: eventsFound,
-        rol: req.user.rol
+        rol: req.user.rol ? req.user.rol : "Customer"
       });
     })
     .catch(err => {
@@ -86,7 +85,7 @@ router.get("/results", (req, res, next) => {
     });
 });
 
-//renderiza solo el resultado de un evento cuando haces click, si eres admin te sale el codigo QR
+//FUNCIONA renderiza solo el resultado de un evento cuando haces click, si eres admin te sale el codigo QR
 router.get("/results/:id", (req, res, next) => {
   Events.findById(req.params.id)
     .then(eventFound => {
@@ -168,22 +167,21 @@ router.post("/profile/edit/:id", (req, res, next) => {
   );
 });
 
-//muestra el formulario de crear eventos
+//FUNCIONAmuestra el formulario de crear eventos
 router.get("/admin", checkRoles("Admin"), (req, res, next) => {
   res.render("new-event");
 });
 
-let lat, lng
-//recibe la info del formulario y crea nuevo evento
+//FUNCIONArecibe la info del formulario y crea nuevo evento
+let lat, lng;
 router.post("/new-event", checkRoles("Admin"), (req, res, next) => {
   console.log(req.body);
   geocoder.geocode(req.body.location, function(err, res) {
-    lat = res[0].latitude
-    lng = res[0].longitude
-    console.log("lat", res[0].latitude, "lng", res[0].longitude);
+    lat = res[0].latitude;
+    lng = res[0].longitude;
   });
-  let location = { type: "Point", coordinates: [lat, lng] }
-  console.log(location)
+  let location = { type: "Point", coordinates: [lat, lng] };
+  console.log(location);
   Events.create({
     name: req.body.name,
     description: req.body.description,
@@ -192,13 +190,13 @@ router.post("/new-event", checkRoles("Admin"), (req, res, next) => {
     type: req.body.type,
     punctuacionReward: req.body.punctuationReward,
     image: req.body.url, // meter el multer
-    location: location,
+    location: location
   }).then(() => {
     res.redirect("/admin");
   });
 });
 
-//muestra el formulario de editar evento
+//FUNCIONAmuestra el formulario de editar evento
 router.get("/edit-event/:id", checkRoles("Admin"), (req, res, next) => {
   Events.findById(req.params.id)
     .then(eventFound => {
@@ -213,14 +211,14 @@ router.get("/edit-event/:id", checkRoles("Admin"), (req, res, next) => {
     });
 });
 
-//elimina eventos
+//FUNCIONAelimina eventos
 router.get("/delete-event/:id", checkRoles("Admin"), (req, res, next) => {
   Events.findByIdAndDelete(req.params.id).then(() => {
     res.redirect("/results");
   });
 });
 
-//recibe los cambios del evento
+//FUNCIONArecibe los cambios del evento
 router.post("/edit-event/:id", checkRoles("Admin"), (req, res, next) => {
   let newEvent = {
     name: req.body.name,
@@ -255,6 +253,7 @@ router.post("/delete-user/:id", checkRoles("Admin"), (req, res, next) => {
   });
 });
 
+//FUNCIONA
 router.get("/eventsForAxios", (req, res, next) => {
   Events.find()
     .then(eventsFound => res.json(eventsFound))

@@ -2,6 +2,8 @@
 
 // To execute this seed, run from the root of the project
 // $ node bin/seeds.js
+require('dotenv').config();
+
 
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
@@ -26,7 +28,7 @@ const Offer10Id = new mongoose.mongo.ObjectId();
 const bcryptSalt = 10;
 
 mongoose
-  .connect("mongodb://localhost/Run-Catch", { useNewUrlParser: true })
+  .connect(`${process.env.DBURL}`, { useNewUrlParser: true })
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`
@@ -86,7 +88,7 @@ let users = [
     rol: "Customer",
     punctuation: 800,
     level: 1,
-    events: [Event5Id, Event2Id]  
+    events: [Event5Id, Event2Id]
   }
 ];
 
@@ -102,7 +104,7 @@ let events = [
     location: {
       type: "Point",
       coordinates: [40.4080326, -3.693607]
-      },
+    },
     punctuationReward: 100,
     image: "",
     qrCode: ""
@@ -118,7 +120,7 @@ let events = [
     location: {
       type: "Point",
       coordinates: [40.4137859, -3.6943158]
-      },
+    },
     punctuationReward: 300,
     image: "",
     qrCode: ""
@@ -134,7 +136,7 @@ let events = [
     location: {
       type: "Point",
       coordinates: [40.411114, -3.6957623]
-      },
+    },
     punctuationReward: 250,
     image: "",
     qrCode: ""
@@ -150,7 +152,7 @@ let events = [
     location: {
       type: "Point",
       coordinates: [40.4267107, -3.7062943]
-      },
+    },
     punctuationReward: 100,
     image: "",
     qrCode: ""
@@ -166,7 +168,7 @@ let events = [
     location: {
       type: "Point",
       coordinates: [40.4074259, -3.6958381]
-      },
+    },
     punctuationReward: 300,
     image: "",
     qrCode: ""
@@ -183,7 +185,7 @@ let events = [
     location: {
       type: "Point",
       coordinates: [40.4581532, -3.6881661]
-      },
+    },
     levelRequiered: 4,
     punctuationReward: 150,
     image: "",
@@ -201,7 +203,7 @@ let events = [
     location: {
       type: "Point",
       coordinates: [40.4238036, -3.6836985]
-      },
+    },
     levelRequiered: 2,
     punctuationReward: 30,
     image: "",
@@ -219,7 +221,7 @@ let events = [
     location: {
       type: "Point",
       coordinates: [40.4360673, -3.7151283]
-      },
+    },
     levelRequiered: 1,
     punctuationReward: 40,
     image: "",
@@ -237,7 +239,7 @@ let events = [
     location: {
       type: "Point",
       coordinates: [40.423084, -3.7025196]
-      },
+    },
     levelRequiered: 3,
     punctuationReward: 70,
     image: "",
@@ -255,7 +257,7 @@ let events = [
     location: {
       type: "Point",
       coordinates: [40.416796, -3.7038842]
-      },
+    },
     levelRequiered: 2,
     punctuationReward: 50,
     image: "",
@@ -273,7 +275,7 @@ let events = [
     location: {
       type: "Point",
       coordinates: [40.4361939, -3.5994674]
-      },
+    },
     levelRequiered: 2,
     punctuationReward: 100,
     image: "",
@@ -291,7 +293,7 @@ let events = [
     location: {
       type: "Point",
       coordinates: [40.4232417, -3.7045222]
-      },
+    },
     levelRequiered: 1,
     punctuationReward: 80,
     image: "",
@@ -309,7 +311,7 @@ let events = [
     location: {
       type: "Point",
       coordinates: [40.4337335, -3.69915]
-      },
+    },
     levelRequiered: 1,
     punctuationReward: 50,
     image: "",
@@ -327,7 +329,7 @@ let events = [
     location: {
       type: "Point",
       coordinates: [40.4250731, -3.6935499]
-      },
+    },
     levelRequiered: 2,
     punctuationReward: 80,
     image: "",
@@ -345,7 +347,7 @@ let events = [
     location: {
       type: "Point",
       coordinates: [40.4299443, -3.7100101]
-      },
+    },
     levelRequiered: 1,
     punctuationReward: 50,
     image: "",
@@ -367,7 +369,9 @@ Event.deleteMany()
     return Event.create(events);
   })
   .then(eventsCreated => {
-    console.log(`${eventsCreated.length} events created with the following id:`);
+    console.log(
+      `${eventsCreated.length} events created with the following id:`
+    );
     console.log(eventsCreated.map(u => u._id));
   })
   .then(() => {
