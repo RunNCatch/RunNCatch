@@ -144,6 +144,13 @@ a {
 }
 
 //CSS propio
+
+.nav{
+  background-color: black;
+  // position: fixed;
+  width: 100vw;
+}
+
 .head {
   margin: 15px;
   background-color: #FAFF00;
@@ -189,11 +196,17 @@ a {
 }
 
 #map {
-  height: 70vh;
+  height: 100vh;
   width: 100%;
 }
 
+#map-container{
+  display: block;
+}
 
+#list-container{
+  display: block;
+}
 
 #update-pos{
   margin: 15px;
@@ -207,6 +220,16 @@ a {
     color: #FAFF00; 
     text-align: center;
     text-decoration: none;  
+  }
+}
+
+//CSS PARA RESULTS
+.list {
+  width: 100vw;
+  
+  img{
+    width: 400px;
+    height: 300px;
   }
 }
 
@@ -247,10 +270,20 @@ a {
   justify-content: center;
   align-items: center;
   margin-top: 180px;
+  margin-right: 200px;
 
   img{
-    width: 200px;
-    height: 180px;
+    width: 300px;
+    height: 280px;
+    position: absolute;
+  }
+
+  svg{
+    width: 150px;
+    height: 150px;
+    position: relative;
+    top:60px;
+    left: 75px;
   }
 }
 
@@ -288,7 +321,6 @@ label {
   opacity: 0;
 }
 
-// CSS PARA EL QR
 
 //CSS PARA OTRO QR
 

@@ -74,13 +74,13 @@ router.post("/scan/:id", checkAuthenticated(), (req, res, next) => {
 
 //FALTARIA ORDENAR POR CERCANIA. EL ADMIN DEBERIA PODER VER BOTONES DE EDITAR Y BORRAR
 router.get("/results", (req, res, next) => {
-  let view = req.query.view
+
   Events.find()
     .then(eventsFound => {
       res.render("results", {
         events: eventsFound,
         rol: req.user ? req.user.rol : "Customer",
-        view: view
+
       });
       console.log("req.user.rol", req.user);
     })

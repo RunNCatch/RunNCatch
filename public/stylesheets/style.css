@@ -138,6 +138,10 @@ body {
 a {
   color: #00b7ff; }
 
+.nav {
+  background-color: black;
+  width: 100vw; }
+
 .head {
   margin: 15px;
   background-color: #FAFF00; }
@@ -172,8 +176,14 @@ a {
     text-align: center; }
 
 #map {
-  height: 70vh;
+  height: 100vh;
   width: 100%; }
+
+#map-container {
+  display: block; }
+
+#list-container {
+  display: block; }
 
 #update-pos {
   margin: 15px;
@@ -186,6 +196,12 @@ a {
     color: #FAFF00;
     text-align: center;
     text-decoration: none; }
+
+.list {
+  width: 100vw; }
+  .list img {
+    width: 400px;
+    height: 300px; }
 
 .form-container {
   display: flex;
@@ -213,10 +229,18 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 180px; }
+  margin-top: 180px;
+  margin-right: 200px; }
   #btn-init img {
-    width: 200px;
-    height: 180px; }
+    width: 300px;
+    height: 280px;
+    position: absolute; }
+  #btn-init svg {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    top: 60px;
+    left: 75px; }
 
 body,
 input {
