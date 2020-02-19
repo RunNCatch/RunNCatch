@@ -148,6 +148,7 @@ a {
 .nav{
   background-color: black;
   // position: fixed;
+  // top: 0;
   width: 100vw;
 }
 
@@ -269,9 +270,11 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 180px;
-  margin-right: 200px;
-
+  margin: 20vh;
+  a{
+    width: 300px;
+    height: 280px;
+  }
   img{
     width: 300px;
     height: 280px;

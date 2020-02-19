@@ -276,7 +276,7 @@ function startMap() {
         map.setCenter(user_location);
 
         let image = {
-          url: "../images/marker.png"
+          url: "../images/iconopequeño.png",
         };
 
 
@@ -289,7 +289,7 @@ function startMap() {
           map: map,
           title: "You are here.",
           animation: google.maps.Animation.BOUNCE,
-          // icon: image
+          icon: image
         });
       },
       function() {
