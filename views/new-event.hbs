@@ -1,7 +1,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_62uCU28_3t0RlV0WVDdrGSg0xG0v4j4"></script>
 
 <div>
-  <form action="/new-event" method="POST" class="new-form">
+  <form action="/new-event" method="POST" class="new-form" enctype='multipart/form-data'>
     <input name="name" type="text" class="form-control" id="name-input" placeholder="name">
     <select name="type">
       <option value="Offers">Offers</option>
@@ -22,7 +22,7 @@
       placeholder="punctuationReward">
     <input name="levelRequiered" type="number" class="form-control" id="length-input" placeholder="levelRequiered">
     <input name="discount" type="number" class="form-control" id="length-input" placeholder="discount">
-    <input name="image" type="text" class="form-control" id="length-input" placeholder="image url">
+    <input name="image" type="file" class="form-control" id="length-input" placeholder="image url">
     <button type="submit" class="btn btn-dark">Create event</button>
   </form>
 </div>

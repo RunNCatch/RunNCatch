@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("IronGenerator JS imported successfully!");
   },false);
 
+
 //Prueba Maps Geolocalizacion
 
 function startMap() {
@@ -288,7 +289,7 @@ function startMap() {
           map: map,
           title: "You are here.",
           animation: google.maps.Animation.BOUNCE,
-          icon: image
+          // icon: image
         });
       },
       function() {
@@ -301,10 +302,7 @@ function startMap() {
 
   axios.get("/eventsForAxios").then(events => {
     events.data.forEach(event => {
-      console.log(event);
-      console.log(event.location);
-      console.log(event.location.coordinates);
-      console.log(event.name)
+      // if (event.start == Date.now){
       let marker = new google.maps.Marker({
         position:{
           lat: event.location.coordinates[0],
@@ -314,6 +312,7 @@ function startMap() {
         title: event.name,
         animation: google.maps.Animation.DROP,
       });
+    // }
     });
 });
 }
@@ -327,38 +326,8 @@ const markers = []
 
 startMap();
 
+//QuerySelector para onclick actualizar la localizacion sin necesidad de recargar
 document.querySelector("#update-pos").onclick = function (event) {
   startMap();
-}
+};
 
-// Inicio sesion Google
-
-// const GoogleStrategy = require("passport-google-oauth20").Strategy;
-// passport.use(
-//   new GoogleStrategy(
-//     {
-//       clientID: "your Google client id here",
-//       clientSecret: "your Google client secret here",
-//       callbackURL: "/auth/google/callback"
-//     },
-//     (accessToken, refreshToken, profile, done) => {
-//       // to see the structure of the data in received response:
-//       console.log("Google account details:", profile);
-
-//       User.findOne({ googleID: profile.id })
-//         .then(user => {
-//           if (user) {
-//             done(null, user);
-//             return;
-//           }
-
-//           User.create({ googleID: profile.id })
-//             .then(newUser => {
-//               done(null, newUser);
-//             })
-//             .catch(err => done(err)); // closes User.create()
-//         })
-//         .catch(err => done(err)); // closes User.findOne()
-//     }
-//   )
-// );

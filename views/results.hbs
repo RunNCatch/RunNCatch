@@ -1,14 +1,18 @@
-<h1>Mapa o Listado</h1>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 
 <div id="map"></div>
 
 <div id="update-pos">
-  <a href=""><div>UPDATE POSITION</div></a>
+  <a href="">
+    <div>UPDATE POSITION</div>
+  </a>
 </div>
 
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-<div class="list results">
+
+
+<div class="list results" id="list-container">
   <form action="/results" method="POST">
     <div class="filter">
       <input name="filter" type="text" class="form-control" id="filter-input">
@@ -26,6 +30,7 @@
         </div>
       </div>
   </a>
+  {{#is ../rol "Admin"}}
   <div class="list buttons">
     <a href="/delete-event/{{_id}}">
       <div class="list-delete button">
@@ -38,6 +43,7 @@
       </div>
     </a>
   </div>
+  {{/is}}
 </div>
 {{/each}}
 </div>

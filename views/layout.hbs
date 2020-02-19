@@ -18,14 +18,23 @@
 </head>
 
 <body>
-  <div class="head">
-    <a href="/scanqr"><div>RUN `N CATCH</div></a>
-  </div>
-  <div class="menu">
-    <a href="/results"><div>MAPAS</div></a>
-    <a href="/results"><div>LISTADO</div></a>
-    <a href="/auth/login"><div>LOGIN</div></a>
-  </div>
+  <nav class="nav">
+    <div class="head">
+      <a href="/scanqr"><div>RUN `N CATCH</div></a>
+    </div>
+    <div class="menu">
+      <div class="click-maps">
+        <a href="/results"><div>MAPAS</div></a>
+      </div>
+      <div class="click-list">
+        <a href="/results"><div>LISTADO</div></a>
+      </div>
+      <div>
+        <a href="/auth/login"><div>LOGIN</div></a>
+      </div>
+    </div>
+  </nav>
+
   <div>
     {{!-- <a href="/auth/logout">Logout</a> --}}
   </div>
@@ -46,6 +55,7 @@
   <script src="/qr/qrcode.js"></script>
   <script src="/javascripts/qr.js"></script>
   <script src="/javascripts/scriptQr.js"></script>
+
 </body>
 
-</html> 
+</html>
