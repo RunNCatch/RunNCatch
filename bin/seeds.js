@@ -34,7 +34,7 @@ const Offer15Id = new mongoose.mongo.ObjectId();
 const bcryptSalt = 10;
 
 mongoose
-  .connect(`${process.env.DBLOCAL}`, { useNewUrlParser: true })
+  .connect(`${process.env.DBURL}`, { useNewUrlParser: true })
   .then(x => {
     console.log(
       `Connected to Mongo! Database name: "${x.connections[0].name}"`

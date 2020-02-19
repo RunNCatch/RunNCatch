@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Users = require("../models/User");
 const Events = require("../models/Events");
-const uploadCloud = require('../configs/cloudinary.js');
+const uploadCloud = require("../configs/cloudinary.js");
 var NodeGeocoder = require("node-geocoder");
 var options = {
   provider: "google",
@@ -22,6 +22,7 @@ function checkRoles(rol) {
     }
   };
 }
+
 function checkAuthenticated() {
   return function(req, res, next) {
     if (req.isAuthenticated()) {
@@ -43,11 +44,11 @@ router.get("/scan", checkAuthenticated(), (req, res, next) => {
 });
 
 router.get("/scanqr", (requ, res, next) => {
-  res.render('readqr');
-})
-router.get('/qr', (req, res, next) => {
-  res.render('qr')
-})
+  res.render("readqr");
+});
+router.get("/qr", (req, res, next) => {
+  res.render("qr");
+});
 
 //esta url es a la que redirige el scan del QR, el ID es el de la base de datos de cada uno en MONGO. coge la informacion del usuario de la session y le hace un find and update con la info del evento. la vista scanResult te da la enhorabuena y te ofrece volver a los resultaods de ofertas y tal
 router.post("/scan/:id", checkAuthenticated(), (req, res, next) => {
@@ -70,18 +71,18 @@ router.post("/scan/:id", checkAuthenticated(), (req, res, next) => {
       next(err);
     });
 });
-//muestra los eventos en dos vistas, modo mapa (aparece tu geolocalizacion en el centro del mapa y los resultados con markers) y modo lista (ordenados del mas cercano al mas lejano) es la misma pagina con dos divs que se activan o no segun los botones de MAP y LIST
-// en el modo mapa tiene un boton de update para actualizar la posicion
-// si pinchas en un resultado te lleva al modo vista de detale de ese evento
-// tiene un condicional, si eres admin te salen los botones de eliminar y editar eventos
+
 //FALTARIA ORDENAR POR CERCANIA. EL ADMIN DEBERIA PODER VER BOTONES DE EDITAR Y BORRAR
 router.get("/results", (req, res, next) => {
+  let view = req.query.view
   Events.find()
     .then(eventsFound => {
       res.render("results", {
         events: eventsFound,
-        rol: req.user.rol ? req.user.rol : "Customer"
+        rol: req.user ? req.user.rol : "Customer",
+        view: view
       });
+      console.log("req.user.rol", req.user);
     })
     .catch(err => {
       console.error("Error connecting to mongo");
@@ -95,7 +96,20 @@ router.get("/results/:id", (req, res, next) => {
     .then(eventFound => {
       res.render("results-detail", {
         event: eventFound,
-        rol: req.user.rol
+        rol: req.user ? req.user.rol : "Customer"
+      });
+    })
+    .catch(err => {
+      console.error("Error connecting to mongo");
+      next(err);
+    });
+});
+router.get("/scangenerated/:id", (req, res, next) => {
+  Events.findById(req.params.id)
+    .then(eventFound => {
+      res.render("scangenerated", {
+        event: eventFound,
+        rol: req.user ? req.user.rol : "Customer"
       });
     })
     .catch(err => {
@@ -106,13 +120,21 @@ router.get("/results/:id", (req, res, next) => {
 //recibe lo que has puesto en el campo search de /results y cambia los resultados,
 // el modo lista tiene un buscador para filtrar , si el buscador se queda en blanco muestra todos
 // si pinchas en un resultado te lleva al modo detalle
+//FUNCIONA
 router.post("/results", (req, res, next) => {
   let filter = req.body.filter;
   Events.find({
-    $or: [{ name: filter }, { description: filter }, { type: filter }]
+    $or: [
+      { name: { $regex: filter, $options: "i" } },
+      { description: { $regex: filter, $options: "i" } },
+      { type: { $regex: filter, $options: "i" } }
+    ]
   })
     .then(eventsFound =>
-      res.render("results", { events: eventsFound, rol: req.user.rol })
+      res.render("results", {
+        events: eventsFound,
+        rol: req.user ? req.user.role : "Customer"
+      })
     )
     .catch(err => {
       console.error("Error connecting to mongo");
@@ -131,7 +153,7 @@ router.get("/profile/:id", checkAuthenticated(), (req, res, next) => {
     .then(userFound =>
       res.render("profile", {
         user: userFound,
-        rol: req.user.rol
+        rol: req.user ? req.user.rol : "Customer"
       })
     )
     .catch(err => {
@@ -145,7 +167,7 @@ router.get("/profile/edit/:id", (req, res, next) => {
     .then(userFound =>
       res.render("profile-edit", {
         user: userFound,
-        rol: req.user.rol
+        rol: req.user ? req.user.rol : "Customer"
       })
     )
     .catch(err => {
@@ -156,41 +178,19 @@ router.get("/profile/edit/:id", (req, res, next) => {
 //hace los cambios mediante el formulario de /profile/edit y te redirige a /profile
 router.post("/profile/edit/:id", (req, res, next) => {
   let newUser = {
-    name: req.body.name,
+    username: req.body.username,
     email: req.body.email,
     password: req.body.password,
     image: req.body.url // meter el multer
   };
-  Users.findByIdAndUpdate(req.params.id, { newUser }).then(userFound =>
-    res.render("profile", userFound)
+  Users.findByIdAndUpdate(req.params.id, newUser).then(userFound =>
+    res.redirect("/all-users")
   );
 });
 //muestra el formulario de crear eventos
+//FUNCIONA
 router.get("/admin", checkRoles("Admin"), (req, res, next) => {
   res.render("new-event");
-});
-let lat, lng
-//recibe la info del formulario y crea nuevo evento
-router.post("/new-event", checkRoles("Admin"), (req, res, next) => {
-  console.log(req.body);
-  geocoder.geocode(req.body.location, function(err, res) {
-    lat = res[0].latitude;
-    lng = res[0].longitude;
-  });
-  let location = { type: "Point", coordinates: [lat, lng] };
-  console.log(location);
-  Events.create({
-    name: req.body.name,
-    description: req.body.description,
-    duration: req.body.duration,
-    start: req.body.start,
-    type: req.body.type,
-    punctuacionReward: req.body.punctuationReward,
-    image: req.body.url, // meter el multer
-    location: location
-  }).then(() => {
-    res.redirect("/admin");
-  });
 });
 
 //FUNCIONAmuestra el formulario de editar evento
@@ -199,7 +199,7 @@ router.get("/edit-event/:id", checkRoles("Admin"), (req, res, next) => {
     .then(eventFound => {
       res.render("edit-event", {
         event: eventFound,
-        rol: req.user.rol
+        rol: req.user ? req.user.rol : "Customer"
       });
     })
     .catch(err => {
@@ -215,23 +215,64 @@ router.get("/delete-event/:id", checkRoles("Admin"), (req, res, next) => {
   });
 });
 
+router.post(
+  "/new-event",
+  checkRoles("Admin"),
+  uploadCloud.single("image"),
+  (req, res, next) => {
+    let lat, lng;
+    geocoder
+      .geocode(req.body.location, function(err, res) {
+        lat = res[0].latitude;
+        lng = res[0].longitude;
+      })
+      .then(() => {
+        let location = { type: "Point", coordinates: [lat, lng] };
+        Events.create({
+          name: req.body.name,
+          description: req.body.description,
+          duration: req.body.duration,
+          start: req.body.start,
+          type: req.body.type,
+          punctuacionReward: req.body.punctuationReward,
+          image: req.file.url,
+          location: location
+        }).then(() => {
+          res.redirect("/admin");
+        });
+      });
+  }
+);
 //FUNCIONArecibe los cambios del evento
 router.post("/edit-event/:id", checkRoles("Admin"), (req, res, next) => {
-  let newEvent = {
-    name: req.body.name,
-    description: req.body.description,
-    duration: req.body.duration,
-    start: req.body.start,
-    type: req.body.type,
-    punctuacionReward: req.body.punctuationReward,
-    image: req.body.url, // meter el multer
-    positionlat: req.body.positionlat,
-    positionlng: req.body.positionlng
-  };
-  Events.findByIdAndUpdate(req.params.id, newEvent).then(() => {
-    res.redirect("/results");
-  });
+  let lat, lng;
+  geocoder
+    .geocode(req.body.location, function(err, res) {
+      lat = res[0].latitude;
+      lng = res[0].longitude;
+    })
+    .then(() => {
+      let location = { type: "Point", coordinates: [lat, lng] };
+      let newEvent = {
+        name: req.body.name,
+        type: req.body.type,
+        description: req.body.description,
+        start: req.body.start,
+        tag: req.body.tag,
+        duration: req.body.duration,
+        location: location,
+        punctuationReward: req.body.punctuationReward,
+        levelRequiered: req.body.levelRequiered,
+        discount: req.body.discount,
+        image: req.body.image
+      };
+      Events.findByIdAndUpdate(req.params.id, newEvent).then(() => {
+        res.redirect("/results");
+      });
+    });
 });
+
+//FUNCIONA
 router.get("/all-users", checkRoles("Admin"), (req, res, next) => {
   Users.find()
     .then(usersFound => {
@@ -242,7 +283,9 @@ router.get("/all-users", checkRoles("Admin"), (req, res, next) => {
       next(err);
     });
 });
-router.post("/delete-user/:id", checkRoles("Admin"), (req, res, next) => {
+
+//FUNCIONA
+router.get("/delete-user/:id", checkRoles("Admin"), (req, res, next) => {
   Users.findByIdAndDelete(req.params.id).then(() => {
     res.redirect("/all-users");
   });
