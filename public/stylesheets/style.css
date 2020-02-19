@@ -175,12 +175,6 @@ a {
   height: 70vh;
   width: 100%; }
 
-.map {
-  display: block; }
-
-#lista {
-  display: none; }
-
 #update-pos {
   margin: 15px;
   display: flex;
