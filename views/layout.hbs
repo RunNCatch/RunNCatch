@@ -18,20 +18,23 @@
 </head>
 
 <body>
-  <div class="head">
-    <a href="/scan"><div>RUN `N CATCH</div></a>
-  </div>
-  <div class="menu">
+  <nav class="nav">
+    <div class="head">
+      <a href="/scan"><div>RUN `N CATCH</div></a>
+    </div>
+    <div class="menu">
       <div class="click-maps">
-        <a href="/results"><div>MAPAS</div></a>
+        <a href="/results/?view=map"><div>MAPAS</div></a>
       </div>
       <div class="click-list">
-        <a><div>LISTADO</div></a>
+        <a href="/results/?view=list"><div>LISTADO</div></a>
       </div>
       <div>
         <a href="/auth/login"><div>LOGIN</div></a>
       </div>
-  </div>
+    </div>
+  </nav>
+
   <div>
     {{!-- <a href="/auth/logout">Logout</a> --}}
   </div>

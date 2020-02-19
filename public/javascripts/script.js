@@ -289,7 +289,7 @@ function startMap() {
           map: map,
           title: "You are here.",
           animation: google.maps.Animation.BOUNCE,
-          icon: image
+          // icon: image
         });
       },
       function() {
@@ -302,10 +302,7 @@ function startMap() {
 
   axios.get("/eventsForAxios").then(events => {
     events.data.forEach(event => {
-      console.log(event);
-      console.log(event.location);
-      console.log(event.location.coordinates);
-      console.log(event.name)
+      // if (event.start == Date.now){
       let marker = new google.maps.Marker({
         position:{
           lat: event.location.coordinates[0],
@@ -315,6 +312,7 @@ function startMap() {
         title: event.name,
         animation: google.maps.Animation.DROP,
       });
+    // }
     });
 });
 }
@@ -349,9 +347,13 @@ function showList(cb) {
   cb()
 }
 
-function toggleStyles() {
-  // alert('callback')
-}
+// function toggleStyles() {
+//   // alert('callback')
+// }
+
+
+
+
 
 
 // Inicio sesion Google

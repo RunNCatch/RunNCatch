@@ -105,7 +105,7 @@ let events = [
     type: "Missions",
     description: "Paseo por el Retiro hasta encontrar el Cógido QR por los alrededores del Palacio de Cristal, acompañado de al menos 4 personas que tengan Run`NCatch y escanear el código todos en un intervalo de 2 minutos",
     tag: "relax",
-    start: new Date(2020, 02, 21, 15, 30, 0),
+    start: new Date(2020, 02, 19, 16, 45, 0),
     duration: 120,
     location: {
       type: "Point",
