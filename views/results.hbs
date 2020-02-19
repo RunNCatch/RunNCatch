@@ -1,6 +1,6 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-{{#is view "map"}}
+
 <div id="map"></div>
 
 <div id="update-pos">
@@ -8,9 +8,9 @@
     <div>UPDATE POSITION</div>
   </a>
 </div>
-{{/is}}
 
-{{#is view "list"}}
+
+
 
 <div class="list results" id="list-container">
   <form action="/results" method="POST">
@@ -47,4 +47,3 @@
 </div>
 {{/each}}
 </div>
-{{/is}}

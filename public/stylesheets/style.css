@@ -236,11 +236,11 @@ a {
     height: 280px;
     position: absolute; }
   #btn-init svg {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     position: relative;
-    top: 35px;
-    left: 48px; }
+    top: 60px;
+    left: 75px; }
 
 body,
 input {
