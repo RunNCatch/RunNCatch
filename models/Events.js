@@ -5,7 +5,7 @@ const eventSchema = new Schema({
   name: String,
   type: {type: String, enum: ["Offers", "Missions"]},
   description: String,
-  tag: {type: String, enum: ["culture", "relax", "restoration", "shopping"]},
+  tag: {type: String, enum: ["culture", "relax", "restoration", "shopping", "beauty"]},
   discount: Number,
   start: Date,
   duration: Number,

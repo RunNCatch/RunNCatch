@@ -2,10 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("IronGenerator JS imported successfully!");
   },false);
 
-  // window.onload = () => {
-  //   document.querySelector(".map").style.display= "block";
-  //   document.querySelector("#lista").style.display= "none"
-  // }
 
 //Prueba Maps Geolocalizacion
 
@@ -338,24 +334,24 @@ document.querySelector("#update-pos").onclick = function (event) {
 };
 
 // Query para cambiar vista de Mapa a Listado y viceversa
-document.querySelector(".click-maps").onclick = function (event) {
-  alert("Hola")
-  document.getElementsByClassName("map").style.display= "block";
-  document.getElementById("lista").style.display= "none"
-};
+document.querySelector(".click-maps").onclick = showMap
+document.querySelector(".click-list").onclick = function() {
+  showList(toggleStyles)
+}
 
-document.querySelector(".click-list").onclick = function (event) {
-  alert("No me cambias")
-  document.getElementsByClassName("map").style.display= "none";
-  document.getElementById("lista").style.display= "block"
-};
+function showMap() {
+    document.getElementById("map-container").style.display= "block";
+    document.getElementById("list-container").style.display= "none"
+}
 
+function showList(cb) {
+  window.location.href="/results"
+  cb()
+}
 
-
-
-
-
-
+function toggleStyles() {
+  // alert('callback')
+}
 
 
 // Inicio sesion Google

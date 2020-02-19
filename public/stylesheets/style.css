@@ -175,11 +175,11 @@ a {
   height: 70vh;
   width: 100%; }
 
-.map {
+#map-container {
   display: block; }
 
-#lista {
-  display: none; }
+#list-container {
+  display: block; }
 
 #update-pos {
   margin: 15px;
