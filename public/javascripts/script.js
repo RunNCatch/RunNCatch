@@ -288,7 +288,7 @@ function startMap() {
           map: map,
           title: "You are here.",
           animation: google.maps.Animation.BOUNCE,
-          icon: image
+          // icon: image
         });
       },
       function() {

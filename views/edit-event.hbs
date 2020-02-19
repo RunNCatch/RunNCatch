@@ -16,15 +16,16 @@
       <option value="shopping">shopping</option>
     </select>
     <input name="duration" type="number" class="form-control" id="inversions-input" placeholder="duration"
-      value="event duration {{event.duration}}">
+      value="{{event.duration}}">
     <input name="location" type="text" class="form-control" id="length-input" placeholder="location">
     <input name="punctuationReward" type="number" class="form-control" id="length-input"
-      placeholder="punctuation reward" value="punctuation reward {{event.punctuationReward}}">
-    <input name="levelRequiered" type="number" class="form-control" id="length-input"
-      placeholder="level required {{event.levelRequiered}}">
+      placeholder="punctuation reward" value="{{event.punctuationReward}}">
+    <input name="levelRequiered" type="number" class="form-control" id="length-input" placeholder="level required"
+      value="{{event.levelRequiered}}">
     <input name="discount" type="number" class="form-control" id="length-input" placeholder="discount"
-      value="event duration {{event.discount}}">
-    <input name="image" type="text" class="form-control" id="length-input" placeholder="image url">
+      value="{{event.discount}}">
+    <input name="image" type="text" class="form-control" id="length-input" placeholder="image url"
+      value="{{event.image}}">
     <button type="submit" class="btn btn-dark">Edit event</button>
   </form>
 </div>

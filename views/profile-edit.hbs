@@ -1,0 +1,13 @@
+<h1>editar perfil</h1>
+{{user.username}}
+<form action="/profile/edit/{{user._id}}" method="POST" class="new-form">
+  <input name="username" type="text" class="form-control" id="name-input" placeholder="username" value="{{event.name}}">
+  <input name="email" type="text" class="form-control" id="description-input" placeholder="email"
+    value="{{event.description}}">
+  <input name="image" type="text" class="form-control" id="length-input" placeholder="image url"
+    value="{{event.image}}">
+  <button type="submit" class="btn btn-dark">Edit profile</button>
+</form>
+<h2>puntuacion {{user.punctuation}}</h2>
+<h2>nivel {{user.level}}</h2>
+<h2>events: [{type: Schema.Types.ObjectId, ref: "Events"}]</h2>
