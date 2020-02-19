@@ -228,16 +228,19 @@ router.post(
       })
       .then(() => {
         let location = { type: "Point", coordinates: [lat, lng] };
-        Events.create({
+        let event = {
           name: req.body.name,
           description: req.body.description,
           duration: req.body.duration,
           start: req.body.start,
           type: req.body.type,
           punctuacionReward: req.body.punctuationReward,
-          image: req.file.url,
           location: location
-        }).then(() => {
+        };
+        if (req.file) {
+          event.image = req.file.url;
+        }
+        Events.create(event).then(() => {
           res.redirect("/admin");
         });
       });
