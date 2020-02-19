@@ -74,13 +74,11 @@ router.post("/scan/:id", checkAuthenticated(), (req, res, next) => {
 
 //FALTARIA ORDENAR POR CERCANIA. EL ADMIN DEBERIA PODER VER BOTONES DE EDITAR Y BORRAR
 router.get("/results", (req, res, next) => {
-
   Events.find()
     .then(eventsFound => {
       res.render("results", {
         events: eventsFound,
-        rol: req.user ? req.user.rol : "Customer",
-
+        rol: req.user ? req.user.rol : "Customer"
       });
       console.log("req.user.rol", req.user);
     })
@@ -107,9 +105,11 @@ router.get("/results/:id", (req, res, next) => {
 router.get("/scangenerated/:id", (req, res, next) => {
   Events.findById(req.params.id)
     .then(eventFound => {
+      let url = `${process.env.URL}scanresult/${req.params.id}`;
       res.render("scangenerated", {
         event: eventFound,
-        rol: req.user ? req.user.rol : "Customer"
+        rol: req.user ? req.user.rol : "Customer",
+        url
       });
     })
     .catch(err => {
