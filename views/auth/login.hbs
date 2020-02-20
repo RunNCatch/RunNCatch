@@ -1,22 +1,14 @@
 <form action="/auth/login" method="POST" class="form-container">
-  <label for="username">Username</label>
  
-  <input id="username" type="text" name="username" placeholder="username">
+  <input id="username" type="text" name="username" placeholder="Username">
 
-
-
-  <label for="password">Password</label>
-
-  <input id="password" type="password" name="password" placeholder="password">
+  <input id="password" type="password" name="password" placeholder="Password">
 
   {{#if message }}
     <div class="error-message">{{ message }}</div>
   {{/if}}
 
-
-
   <button>Login</button>
-
-  <p class="account-message">Don't have an account yet?</p>
-  <a href="/auth/signup">Signup</a>
 </form>
+
+ <p class="account-message">Don't have an account yet?</p> <a href="/auth/signup">Signup</a>

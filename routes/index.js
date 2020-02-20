@@ -38,6 +38,11 @@ function checkAuthenticated() {
 router.get("/", (req, res, next) => {
   res.render("index");
 });
+
+//Ruta extra para ir a la vista de maps solamente
+router.get("/results-map", (req, res, next) => {
+  res.render("results-map");
+})
 //scaner de qr con permiso de la camara. tambien tiene un boton de back.
 router.get("/scan", checkAuthenticated(), (req, res, next) => {
   res.render("scan");
