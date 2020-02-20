@@ -274,7 +274,6 @@ a {
     color: #faff00;
     background-color: black; }
 
-<<<<<<< HEAD
 #btn-init {
   display: flex;
   justify-content: center;
@@ -294,8 +293,6 @@ a {
     top: 60px;
     left: 75px; }
 
-=======
->>>>>>> 84d472fef65783ea0ad42ebaa31e11d8feb8f770
 body,
 input {
   font-size: 14pt;

@@ -110,11 +110,10 @@ router.get("/results", (req, res, next) => {
     });
 });
 
-//FUNCIONA renderiza solo el resultado de un evento cuando haces click, si eres admin te sale el codigo QR
-router.get("/scanresults/:id", (req, res, next) => {
+router.get("/results/:id", (req, res, next) => {
   Events.findById(req.params.id)
     .then(eventFound => {
-      res.render("scanResult", {
+      res.render("results-detail", {
         event: eventFound,
         rol: req.user ? req.user.rol : "Customer"
       });
@@ -124,6 +123,9 @@ router.get("/scanresults/:id", (req, res, next) => {
       next(err);
     });
 });
+//FUNCIONA renderiza solo el resultado de un evento cuando haces click, si eres admin te sale el codigo QR
+
+
 router.get("/scangenerated/:id", (req, res, next) => {
   Events.findById(req.params.id)
     .then(eventFound => {
