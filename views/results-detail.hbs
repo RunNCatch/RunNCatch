@@ -1,10 +1,13 @@
-<h1>Detalle Ofertas</h1>
-{{event.name}}
-{{event.description}}
-{{event.start}}
-
+<img src={{event.image}} />
+<h1>{{event.name}}</h1>
+{{!-- <h2>Tipo {{event.type}}</h2> --}}
+<p>{{event.description}}</p>
+<date>Inicio {{event.start}}</date>
+<p>Duración {{event.duration}} minutos</p>
+<p>Descuento {{event.discount}} %</p>
+<h2>Nivel requerido {{event.levelRequiered}}</h2>
+<h2>Recompensa de puntuación {{event.punctuationReward}}</h2>
 {{#is rol "Admin"}}
 <a href=/scangenerated/{{event._id}}>Generar QR</a>
 {{/is}}
 <a href="/results">volver a los resultados</a>
-{{!-- input value=localhost:3000/scan/{{_id}} --}}
