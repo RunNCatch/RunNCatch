@@ -445,6 +445,14 @@ a {
 // CSS PARA EL QR
 .camera-container {
   height: 70vh;
+  overflow: hidden;
+  position: fixed;
+}
+
+.readerqrtext {
+  position: fixed;
+  top: 70vh;
+  z-index: 10;
 }
 
 .qrcontainer {
