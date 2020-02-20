@@ -167,7 +167,7 @@ let events = [
       coordinates: [40.4267107, -3.7062943]
     },
     punctuationReward: 200,
-    image: "../images/missions6.png",
+    image: "../images/missions4.svg",
     qrCode: ""
   },
   {
@@ -183,7 +183,7 @@ let events = [
       coordinates: [40.4074259, -3.6958381]
     },
     punctuationReward: 300,
-    image: "../images/missions2.jpg",
+    image: "../images/missions6.png",
     qrCode: ""
   },
   {

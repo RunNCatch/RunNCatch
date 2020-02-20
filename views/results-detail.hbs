@@ -22,13 +22,30 @@
   </div>
   {{/unless}}
 </div>
-<h1>Detalle Ofertas</h1>
-{{event.name}}
-{{event.description}}
-{{event.start}}
 
-{{#is rol "Admin"}}
-<a href=/scangenerated/{{event._id}}>Generar QR</a>
-{{/is}}
-<a href="/results">volver a los resultados</a>
+<div class= "detail-event"> 
+  <h1>{{event.name}}</h1>
+  <div class= "detail-flex">
+    <div class="background-white">
+      <img src="{{event.image}}" alt="{{event.name}}">
+    </div>
+    <div class="detail-text">
+      <p>{{event.description}}</p>
+      <br>
+      <p>{{event.start}}</p>
+    </div>
+  </div>
+
+  <div class="btn-back">
+    {{#is rol "Admin"}}
+      <a href=/scangenerated/{{event._id}}>Generar QR</a>
+    {{/is}}
+  </div>
+
+  <div class="btn-back">
+    <a href="/results">Volver a listado</a>
+  </div>
+  
+</div>
+
 {{!-- input value=localhost:3000/scan/{{_id}} --}}

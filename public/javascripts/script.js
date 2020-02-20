@@ -300,6 +300,8 @@ function startMap() {
     console.log("Browser does not support geolocation.");
   }
 
+
+
   axios.get("/eventsForAxios").then(events => {
     events.data.forEach(event => {
       if (event.type === "Offers"){
@@ -314,7 +316,11 @@ function startMap() {
           map: map,
           title: event.name,
           animation: google.maps.Animation.BOUNCE,
+          url: `http://localhost:3000/results/${event._id}`,
           icon: image
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+          window.location.href = this.url;
         });
       } else {
         let image = {
@@ -328,7 +334,11 @@ function startMap() {
           map: map,
           title: event.name,
           animation: google.maps.Animation.BOUNCE,
+          url: `http://localhost:3000/results/${event._id}`,
           icon: image
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+          window.location.href = this.url;
         });
       }
 
