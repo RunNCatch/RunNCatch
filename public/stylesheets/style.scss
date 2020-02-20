@@ -128,6 +128,8 @@ table {
   border-spacing: 0;
 }
 
+//CSS PROPIO
+
 *{
   box-sizing: border-box;
 }
@@ -143,7 +145,33 @@ a {
   color: #00b7ff;
 }
 
-//CSS propio
+//CSS PARA BOTON/SVG INDEX
+
+#btn-init {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20vh;
+  a{
+    width: 300px;
+    height: 260px;
+  }
+  img{
+    width: 300px;
+    height: 260px;
+    position: absolute;
+  }
+
+  svg{
+    width: 150px;
+    height: 130px;
+    position: relative;
+    top:60px;
+    left: 75px;
+  }
+}
+
+//CSS NAV
 
 .nav{
   background-color: black;
@@ -151,6 +179,8 @@ a {
   // top: 0;
   width: 100vw;
 }
+
+//CSS NAV/HEAD
 
 .head {
   margin: 15px;
@@ -166,6 +196,8 @@ a {
     color: black;
   }
 }
+
+//CSS NAV/MENU
 
 .menu {
   margin: 15px;
@@ -196,18 +228,14 @@ a {
   }
 }
 
+//CSS RESULTS/MAP
+
 #map {
   height: 100vh;
   width: 100%;
 }
 
-#map-container{
-  display: block;
-}
-
-#list-container{
-  display: block;
-}
+//CSS RESULTS/MAP BOTON UPDATE
 
 #update-pos{
   margin: 15px;
@@ -224,7 +252,8 @@ a {
   }
 }
 
-//CSS PARA RESULTS
+//CSS RESULTS/LIST
+
 .list {
   width: 100vw;
   
@@ -263,35 +292,6 @@ a {
 
   }
 }
-
-//CSS PARA BOTON PANTALLA INDEX
-
-#btn-init {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20vh;
-  a{
-    width: 300px;
-    height: 280px;
-  }
-  img{
-    width: 300px;
-    height: 280px;
-    position: absolute;
-  }
-
-  svg{
-    width: 150px;
-    height: 150px;
-    position: relative;
-    top:60px;
-    left: 75px;
-  }
-}
-
-
-
 
 // CSS PARA EL QR
 body,

@@ -49,52 +49,59 @@ let users = [
     username: "Pedro",
     email: "pcramos19@gmail.com",
     password: bcrypt.hashSync("pedro", bcrypt.genSaltSync(bcryptSalt)),
-    rol: "Admin"
+    image: "../images/pedro.jpeg",
+    rol: "Admin",
+    events: [Offer1Id, Offer14Id, Offer5Id, Event6Id, Offer2Id, Event4Id, Offer9Id, Offer7Id]
   },
   {
     username: "Alejandro",
     email: "alejandrosz@gmail.com",
     password: bcrypt.hashSync("alejandro", bcrypt.genSaltSync(bcryptSalt)),
+    image: "../images/alejandro.jpeg",
     rol: "Customer",
     punctuation: 4100,
     level: 5,
-    events: [Event3Id, Event4Id, Event1Id, Offer3Id, Offer1Id]
+    events: [Offer1Id, Offer9Id, Offer3Id, Event1Id, Offer11Id, Offer8Id, Event4Id, Event7Id]
   },
   {
-    username: "Julio",
-    email: "julio@gmail.com",
-    password: bcrypt.hashSync("julio", bcrypt.genSaltSync(bcryptSalt)),
+    username: "Fernando",
+    email: "fernando@gmail.com",
+    password: bcrypt.hashSync("fernando", bcrypt.genSaltSync(bcryptSalt)),
+    image: "../images/comet.jpeg",
     rol: "Customer",
     punctuation: 2500,
     level: 3,
-    events: [Offer5Id, Offer2Id]
+    events: [Offer5Id, Offer2Id, Offer13Id, Event2Id, Offer13Id, Offer15Id, Event8Id]
   },
   {
-    username: "Sara",
-    email: "sara@gmail.com",
-    password: bcrypt.hashSync("sara", bcrypt.genSaltSync(bcryptSalt)),
+    username: "Laura",
+    email: "laura@gmail.com",
+    password: bcrypt.hashSync("laura", bcrypt.genSaltSync(bcryptSalt)),
+    image: "../images/laura.png",
     rol: "Customer",
     punctuation: 1800,
     level: 2,
-    events: [Event5Id, Event2Id, Event3Id, Offer4Id]
+    events: [Offer9Id, Event5Id, Offer5Id, Offer12Id, Offer15Id, Event3Id, Offer4Id, Event7Id]
   },
   {
-    username: "Carlos",
-    email: "carlos@gmail.com",
-    password: bcrypt.hashSync("carlos", bcrypt.genSaltSync(bcryptSalt)),
+    username: "Maria",
+    email: "msimo@gmail.com",
+    password: bcrypt.hashSync("maria", bcrypt.genSaltSync(bcryptSalt)),
+    image: "../images/maria.jpeg",
     rol: "Customer",
     punctuation: 1500,
     level: 2,
-    events: [Offer2Id, Event4Id]
+    events: [Offer2Id, Event4Id, Offer8Id, Offer11Id, Offer3Id, Offer7Id, Event8Id, Offer12Id]
   },
   {
     username: "Pedro Sanchez",
     email: "psanchez@gmail.com",
     password: bcrypt.hashSync("psanchez", bcrypt.genSaltSync(bcryptSalt)),
+    image: "../images/psanchez.jpeg",
     rol: "Customer",
     punctuation: 800,
     level: 1,
-    events: [Event5Id, Event2Id]
+    events: [Offer4Id, Offer14Id, Offer5Id, Event5Id, Offer2Id, Event2Id, Offer9Id, Offer7Id]
   }
 ];
 
@@ -112,7 +119,7 @@ let events = [
       coordinates: [40.4080326, -3.693607]
     },
     punctuationReward: 300,
-    image: "../images/mision.jpg",
+    image: "../images/missions6.png",
     qrCode: ""
   },
   {
@@ -128,7 +135,7 @@ let events = [
       coordinates: [40.4137859, -3.6943158]
     },
     punctuationReward: 450,
-    image: "../images/mision.jpg",
+    image: "../images/missions4.svg",
     qrCode: ""
   },
   {
@@ -144,7 +151,7 @@ let events = [
       coordinates: [40.411114, -3.6957623]
     },
     punctuationReward: 150,
-    image: "../images/mision.jpg",
+    image: "../images/missions5.svg",
     qrCode: ""
   },
   {
@@ -160,7 +167,7 @@ let events = [
       coordinates: [40.4267107, -3.7062943]
     },
     punctuationReward: 200,
-    image: "../images/mision.jpg",
+    image: "../images/missions6.png",
     qrCode: ""
   },
   {
@@ -176,7 +183,7 @@ let events = [
       coordinates: [40.4074259, -3.6958381]
     },
     punctuationReward: 300,
-    image: "../images/mision.jpg",
+    image: "../images/missions2.jpg",
     qrCode: ""
   },
   {
@@ -192,7 +199,7 @@ let events = [
       coordinates: [40.4082021, -3.7072981]
     },
     punctuationReward: 350,
-    image: "../images/mision.jpg",
+    image: "../images/missions7.png",
     qrCode: ""
   },
   {
@@ -208,7 +215,7 @@ let events = [
       coordinates: [40.5082021, -3.7972981]
     },
     punctuationReward: 400,
-    image: "../images/mision.jpg",
+    image: "../images/missions5.svg",
     qrCode: ""
   },
   {
@@ -224,7 +231,7 @@ let events = [
       coordinates: [40.3967111, -3.6541353]
     },
     punctuationReward: 600,
-    image: "../images/mision.jpg",
+    image: "../images/missions4.svg",
     qrCode: ""
   },
   {
