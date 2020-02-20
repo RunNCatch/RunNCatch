@@ -1,28 +1,81 @@
-<img class="detail-image" src={{event.image}} />
-<h1>{{event.name}}</h1>
-{{!-- <h2>Tipo {{event.type}}</h2> --}}
-<p>{{event.description}}</p>
-<date>Inicio
-  {{#is date 0}}lunes{{/is}}
-  {{#is date 1}}martes{{/is}}
-  {{#is date 2}}miércoles{{/is}}
-  {{#is date 3}}jueves{{/is}}
-  {{#is date 4}}viernes{{/is}}
-  {{#is date 5}}sábado{{/is}}
-  {{#is date 6}}domingo{{/is}}
-  {{day}}
-  {{hours}}h{{minutes}}m</date>
-<p>Duración {{event.duration}} minutos</p>
-{{#if event.discount}}
-<p>Descuento {{event.discount}} %</p>
-{{/if}}
-{{#if event.levelRequiered}}
-<h2>Nivel requerido {{event.levelRequiered}}</h2>
-{{/if}}
-{{#if event.punctuationReward}}
-<h2>Recompensa de puntuación {{event.punctuationReward}}</h2>
-{{/if}}
-{{#is rol "Admin"}}
-<a href=/scangenerated/{{event._id}}>Generar QR</a>
-{{/is}}
-<a href="/results">volver a los resultados</a>
+<div class="menu">
+  <div class="click-maps">
+    <a href="/results-map">
+      <div><span>MAPAS</span></div>
+    </a>
+  </div>
+  <div class="click-list">
+    <a href="/results">
+      <div>LISTADO</div>
+    </a>
+  </div>
+
+  {{#is rol "Admin"}}
+  <div>
+    <a href="/admin">
+      <div>ADMIN</div>
+    </a>
+  </div>
+  {{/is}}
+  {{#is rol "Customer"}}
+  <div>
+    <a href="/profile/{{id}}">
+      <div>PERFIL</div>
+    </a>
+  </div>
+  {{/is}}
+  {{#unless rol}}
+  <div>
+    <a href="/auth/login">
+      <div>LOGIN</div>
+    </a>
+  </div>
+  {{/unless}}
+</div>
+
+<div class="detail-event">
+  <h1>{{event.name}}</h1>
+  <div class="detail-flex">
+    <div class="background-white">
+      <img src="{{event.image}}" alt="{{event.name}}">
+    </div>
+    <div class="detail-text">
+      <p>{{event.description}}</p>
+      <br>
+      <date>Inicio
+        {{#is date 0}}lunes{{/is}}
+        {{#is date 1}}martes{{/is}}
+        {{#is date 2}}miércoles{{/is}}
+        {{#is date 3}}jueves{{/is}}
+        {{#is date 4}}viernes{{/is}}
+        {{#is date 5}}sábado{{/is}}
+        {{#is date 6}}domingo{{/is}}
+        {{day}}
+        {{hours}}h{{minutes}}m</date>
+      <p>Duración {{event.duration}} minutos</p>
+      {{#if event.discount}}
+      <p>Descuento {{event.discount}} %</p>
+      {{/if}}
+      {{#if event.levelRequiered}}
+      <h2>Nivel requerido {{event.levelRequiered}}</h2>
+      {{/if}}
+      {{#if event.punctuationReward}}
+      <h2>Recompensa de puntuación {{event.punctuationReward}}</h2>
+      {{/if}}
+
+    </div>
+  </div>
+
+  <div class="btn-back">
+    {{#is rol "Admin"}}
+    <a href=/scangenerated/{{event._id}}>Generar QR</a>
+    {{/is}}
+  </div>
+
+  <div class="btn-back">
+    <a href="/results">Volver a listado</a>
+  </div>
+
+</div>
+
+{{!-- input value=localhost:3000/scan/{{_id}} --}}

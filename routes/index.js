@@ -22,7 +22,6 @@ function checkRoles(rol) {
     }
   };
 }
-
 function checkAuthenticated() {
   return function(req, res, next) {
     if (req.isAuthenticated()) {
@@ -83,7 +82,6 @@ router.get("/scanresult/:id", checkAuthenticated(), (req, res, next) => {
         })
     );
 });
-
 router.get("/results", (req, res, next) => {
   Events.find()
     .then(eventsFound => {
@@ -101,7 +99,6 @@ router.get("/results", (req, res, next) => {
       next(err);
     });
 });
-
 router.get("/results/:id", (req, res, next) => {
   Events.findById(req.params.id)
     .then(eventFound => {
@@ -123,7 +120,6 @@ router.get("/results/:id", (req, res, next) => {
       next(err);
     });
 });
-
 router.get("/scangenerated/:id", (req, res, next) => {
   Events.findById(req.params.id)
     .then(eventFound => {
@@ -140,7 +136,6 @@ router.get("/scangenerated/:id", (req, res, next) => {
       next(err);
     });
 });
-
 router.post("/results", (req, res, next) => {
   let filter = req.body.filter;
   Events.find({
@@ -212,7 +207,6 @@ router.post("/profile/edit/:id", (req, res, next) => {
 router.get("/admin", checkRoles("Admin"), (req, res, next) => {
   res.render("new-event");
 });
-
 router.get("/edit-event/:id", checkRoles("Admin"), (req, res, next) => {
   Events.findById(req.params.id)
     .then(eventFound => {
@@ -230,13 +224,11 @@ router.get("/edit-event/:id", checkRoles("Admin"), (req, res, next) => {
       next(err);
     });
 });
-
 router.get("/delete-event/:id", checkRoles("Admin"), (req, res, next) => {
   Events.findByIdAndDelete(req.params.id).then(() => {
     res.redirect("/results");
   });
 });
-
 router.post(
   "/new-event",
   checkRoles("Admin"),
@@ -271,7 +263,6 @@ router.post(
       });
   }
 );
-
 router.post("/edit-event/:id", checkRoles("Admin"), (req, res, next) => {
   let lat, lng;
   geocoder
@@ -301,7 +292,6 @@ router.post("/edit-event/:id", checkRoles("Admin"), (req, res, next) => {
       });
     });
 });
-
 router.get("/all-users", checkRoles("Admin"), (req, res, next) => {
   Users.find()
     .populate("events")
@@ -313,13 +303,11 @@ router.get("/all-users", checkRoles("Admin"), (req, res, next) => {
       next(err);
     });
 });
-
 router.get("/delete-user/:id", checkRoles("Admin"), (req, res, next) => {
   Users.findByIdAndDelete(req.params.id).then(() => {
     res.redirect("/all-users");
   });
 });
-
 router.get("/eventsForAxios", (req, res, next) => {
   Events.find()
     .then(eventsFound => res.json(eventsFound))

@@ -1,19 +1,41 @@
+<div class="menu">
+  <div class="click-maps">
+    <a href="/results-map"><div><span>MAPAS</span></div></a>
+  </div>
+  <div class="click-list">
+    <a href="/results"><div>LISTADO</div></a>
+  </div>
+  
+  {{#is rol "Admin"}}  
+  <div>
+    <a href="/admin"><div>ADMIN</div></a>
+  </div>
+  {{/is}}
+  {{#is rol "Customer"}} 
+  <div>
+    <a href="/profile/{{id}}"><div>PERFIL</div></a>
+  </div>
+  {{/is}}
+  {{#unless rol}} 
+  <div>
+    <a href="/auth/login"><div>LOGIN</div></a>
+  </div>
+  {{/unless}}
+</div>
 <form action="/auth/signup" method="POST" class="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="username">
 
-  <label for="email">Email</label>
-  <input id="username" type="text" name="email" placeholder="email">
+  <input id="username" type="text" name="username" placeholder="Nombre">
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="password">
+  <input id="username" type="text" name="email" placeholder="Email">
+
+  <input id="password" type="password" name="password" placeholder="Contraseña">
 
   {{#if message }}
     <div class="error-message">{{ message }}</div>
   {{/if}}
 
-  <button>Create account</button>
+  <button>Crear cuenta</button>
 
-  <p class="account-message">Do you already have an account?</p>
-  <a href="/auth/login">Login</a>
 </form>
+
+  <p class="update-pos">¿Ya tienes una cuenta? &nbsp;<a href="/auth/login">Login</a></p>

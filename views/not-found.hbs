@@ -1,2 +1,27 @@
-<h1>404 Error</h1>
+<div class="menu">
+  <div class="click-maps">
+    <a href="/results-map"><div><span>MAPAS</span></div></a>
+  </div>
+  <div class="click-list">
+    <a href="/results"><div>LISTADO</div></a>
+  </div>
+  
+  {{#is rol "Admin"}}  
+  <div>
+    <a href="/admin"><div>ADMIN</div></a>
+  </div>
+  {{/is}}
+  {{#is rol "Customer"}} 
+  <div>
+    <a href="/profile/{{id}}"><div>PERFIL</div></a>
+  </div>
+  {{/is}}
+  {{#unless rol}} 
+  <div>
+    <a href="/auth/login"><div>LOGIN</div></a>
+  </div>
+  {{/unless}}
+</div>
+
+</div><h1>404 Error</h1>
 <h2>This route does not exist on the app! Check if everything is ok!</h2>

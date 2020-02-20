@@ -1,7 +1,32 @@
+<div class="menu">
+  <div class="click-maps">
+    <a href="/results-map"><div><span>MAPAS</span></div></a>
+  </div>
+  <div class="click-list">
+    <a href="/results"><div>LISTADO</div></a>
+  </div>
+  
+  {{#is rol "Admin"}}  
+  <div>
+    <a href="/admin"><div>ADMIN</div></a>
+  </div>
+  {{/is}}
+  {{#is rol "Customer"}} 
+  <div>
+    <a href="/profile/{{id}}"><div>PERFIL</div></a>
+  </div>
+  {{/is}}
+  {{#unless rol}} 
+  <div>
+    <a href="/auth/login"><div>LOGIN</div></a>
+  </div>
+  {{/unless}}
+</div>
+
 <div class="list results" id="list-container">
   <form action="/results" method="POST">
     <div class="filter">
-      <input name="filter" type="text" class="form-control" id="filter-input" placeholder="search">
+      <input name="filter" type="text" class="form-control" id="filter-input" placeholder="Buscador de ofertas">
     </div>
   </form>
   {{#each events}}
@@ -20,12 +45,12 @@
     <div class="list-buttons">
       <a href="/delete-event/{{_id}}">
         <div class="list-delete button">
-          <h3>DELETE</h3>
+          <img src="../images/iconodelete.png" alt="Borrar">
         </div>
       </a>
       <a href="/edit-event/{{_id}}">
         <div class="list-edit button">
-          <h3>EDIT</h3>
+          <img src="../images/iconoedit.png" alt="Editar">
         </div>
       </a>
     </div>
