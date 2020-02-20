@@ -1,14 +1,40 @@
+<div class="menu">
+  <div class="click-maps">
+    <a href="/results-map"><div><span>MAPAS</span></div></a>
+  </div>
+  <div class="click-list">
+    <a href="/results"><div>LISTADO</div></a>
+  </div>
+  
+  {{#is rol "Admin"}}  
+  <div>
+    <a href="/admin"><div>ADMIN</div></a>
+  </div>
+  {{/is}}
+  {{#is rol "Customer"}} 
+  <div>
+    <a href="/profile/{{id}}"><div>PERFIL</div></a>
+  </div>
+  {{/is}}
+  {{#unless rol}} 
+  <div>
+    <a href="/auth/login"><div>LOGIN</div></a>
+  </div>
+  {{/unless}}
+</div>
 <form action="/auth/login" method="POST" class="form-container">
- 
-  <input id="username" type="text" name="username" placeholder="Username">
+ <div>
+     <input id="username" type="text" name="username" placeholder="Nombre">
 
-  <input id="password" type="password" name="password" placeholder="Password">
+  <input id="password" type="password" name="password" placeholder="Contraseña">
 
   {{#if message }}
     <div class="error-message">{{ message }}</div>
   {{/if}}
 
   <button>Login</button>
-</form>
+ </div>
 
- <p class="account-message">Don't have an account yet?</p> <a href="/auth/signup">Signup</a>
+</form>
+<p class="update-pos">¿Aún no tienes una cuenta? &nbsp;<a href="/auth/signup">Signup</a></p> 
+ 

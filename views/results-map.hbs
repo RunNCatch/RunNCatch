@@ -1,9 +1,31 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<div class="menu">
+  <div class="click-maps">
+    <a href="/results-map"><div><span>MAPAS</span></div></a>
+  </div>
+  <div class="click-list">
+    <a href="/results"><div>LISTADO</div></a>
+  </div>
+  
+  {{#is rol "Admin"}}  
+  <div>
+    <a href="/admin"><div>ADMIN</div></a>
+  </div>
+  {{/is}}
+  {{#is rol "Customer"}} 
+  <div>
+    <a href="/profile/{{id}}"><div>PERFIL</div></a>
+  </div>
+  {{/is}}
+  {{#unless rol}} 
+  <div>
+    <a href="/auth/login"><div>LOGIN</div></a>
+  </div>
+  {{/unless}}
+</div>
 
 <div id="map"></div>
 
-<div id="update-pos">
-  <a href="">
-    <div>UPDATE POSITION</div>
-  </a>
+<div class="update-pos">
+  <a href=""><div>UPDATE POSITION</div></a>
 </div>
