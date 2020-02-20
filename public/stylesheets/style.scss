@@ -150,6 +150,7 @@ a {
 
 #btn-init {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 20vh;
@@ -443,7 +444,7 @@ a {
 
 // CSS PARA EL QR
 .camera-container {
-  width: calc(100vh-80px);
+  width: calc(85vh);
 }
 
 .qrcontainer {

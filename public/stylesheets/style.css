@@ -141,6 +141,7 @@ a {
 
 #btn-init {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 20vh; }
@@ -356,7 +357,7 @@ a {
     height: 60px; }
 
 .camera-container {
-  width: calc(100vh-60px); }
+  width: calc(85vh); }
 
 .qrcontainer {
   position: fixed;
