@@ -14,7 +14,7 @@ var options = {
 };
 var geocoder = NodeGeocoder(options);
 function checkRoles(rol) {
-  return function(req, res, next) {
+  return function (req, res, next) {
     if (req.isAuthenticated() && req.user.rol === rol) {
       return next();
     } else {
@@ -24,7 +24,7 @@ function checkRoles(rol) {
 }
 
 function checkAuthenticated() {
-  return function(req, res, next) {
+  return function (req, res, next) {
     if (req.isAuthenticated()) {
       return next();
     } else {
@@ -49,6 +49,11 @@ router.get("/scanqr", (requ, res, next) => {
 router.get("/qr", (req, res, next) => {
   res.render("qr");
 });
+
+// router.get('/qr/:id', (req, res, next) => {
+//   id = req.params.id;
+//   res.render('qr', id)
+// })
 
 //esta url es a la que redirige el scan del QR, el ID es el de la base de datos de cada uno en MONGO. coge la informacion del usuario de la session y le hace un find and update con la info del evento. la vista scanResult te da la enhorabuena y te ofrece volver a los resultaods de ofertas y tal
 router.post("/scan/:id", checkAuthenticated(), (req, res, next) => {
@@ -91,10 +96,10 @@ router.get("/results", (req, res, next) => {
 });
 
 //FUNCIONA renderiza solo el resultado de un evento cuando haces click, si eres admin te sale el codigo QR
-router.get("/results/:id", (req, res, next) => {
+router.get("/scanresults/:id", (req, res, next) => {
   Events.findById(req.params.id)
     .then(eventFound => {
-      res.render("results-detail", {
+      res.render("scanResult", {
         event: eventFound,
         rol: req.user ? req.user.rol : "Customer"
       });
@@ -117,6 +122,20 @@ router.get("/scangenerated/:id", (req, res, next) => {
       next(err);
     });
 });
+
+// router.get("/scanresult/:id", (req, res, next) => {
+//   Events.findById(req.params.id)
+//     .then(eventFound => {
+//       res.render("scanResult", {
+//         event: eventFound,
+//         rol: req.user.rol
+//       });
+//     })
+//     .catch(err => {
+//       console.error("Error connecting to mongo");
+//       next(err);
+//     });
+// });
 //recibe lo que has puesto en el campo search de /results y cambia los resultados,
 // el modo lista tiene un buscador para filtrar , si el buscador se queda en blanco muestra todos
 // si pinchas en un resultado te lleva al modo detalle
