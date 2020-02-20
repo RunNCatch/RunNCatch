@@ -60,25 +60,20 @@ router.get("/scanresult/:id", checkAuthenticated(), (req, res, next) => {
   let oldevents;
   Users.findById(userId)
     .then(userFound => {
+      console.log("userFound", userFound)
       oldpunctuation = userFound.punctuation;
       oldevents = userFound.events;
-      console.log("userFound", userFound);
-      console.log("oldpunctuation", userFound.punctuation);
-      console.log("oldevents", userFound.events);
     })
     .then(
       Events.findById(eventId)
         .then(eventFound => {
-          console.log("eventfound", eventFound);
-          console.log("eventfound punctuation", eventFound.punctuationReward);
+          console.log("eventfound", eventFound)
           newEvent = eventFound;
           oldevents.push(eventId);
           addEvent = {
             punctuation: oldpunctuation + eventFound.punctuationReward,
             events: oldevents
           };
-          console.log("newEvent", newEvent);
-          console.log("addEvent", addEvent);
         })
         .then(() => Users.findByIdAndUpdate(userId, addEvent))
         .then(() => res.render("scanResult", newEvent))

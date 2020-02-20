@@ -1,1 +1,8 @@
-<h1>Mensaje tras el scaneo del QR {{name}}</h1>
+<h1>Enhorabuena has disfrutado del evento {{name}}</h1>
+{{#is type "Offers"}}
+Tu oferta te ha dado {{punctuationReward}}
+{{/is}}
+{{#is type "Missions"}}
+Tu mision te ha dado {{punctuationReward}}
+{{/is}}
+<a href="/results">vuelve a los resultados</a>

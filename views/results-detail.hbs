@@ -2,7 +2,9 @@
 {{event.name}}
 {{event.description}}
 {{event.start}}
-<a href=/scangenerated/{{event._id}}>Generar QR</a>
-<p>Si eres admin veras el QR del Event/Offer</p>
 
+{{#is rol "Admin"}}
+<a href=/scangenerated/{{event._id}}>Generar QR</a>
+{{/is}}
+<a href="/results">volver a los resultados</a>
 {{!-- input value=localhost:3000/scan/{{_id}} --}}
