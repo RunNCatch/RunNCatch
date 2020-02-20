@@ -136,7 +136,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00b7ff; }
+  text-decoration: none; }
 
 .nav {
   background-color: black;
@@ -197,11 +197,47 @@ a {
     text-align: center;
     text-decoration: none; }
 
-.list {
-  width: 100vw; }
-  .list img {
-    width: 400px;
-    height: 300px; }
+.form-control {
+  width: 100%; }
+
+.list-name {
+  display: flex;
+  align-items: center;
+  margin-left: 20px; }
+
+.list-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 10px;
+  justify-content: space-evenly;
+  height: 100%;
+  text-align: center; }
+  .list-buttons .list-delete {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center; }
+
+.list a {
+  text-decoration: none; }
+
+.list-info {
+  display: flex; }
+
+.list-element {
+  color: black;
+  text-transform: uppercase;
+  background-color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  align-items: center;
+  height: 90px;
+  display: flex;
+  justify-content: space-between; }
+
+.list img {
+  width: 100px;
+  height: 90px; }
 
 .form-container {
   display: flex;
