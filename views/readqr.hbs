@@ -3,6 +3,7 @@
         width: 100%;
         height: calc(100%-60px);
     }
+
     canvas {
         display: none;
     }
@@ -26,12 +27,13 @@
     <span id="cam-has-camera"></span> --}}
 </div>
 
-<b>Detected QR code: </b>
-<span id="cam-qr-result"></span>
-<br>
-<b>Last detected at: </b>
-<span id="cam-qr-result-timestamp"></span>
-<hr>
+<div><b>Detected QR code: </b>
+    <span id="cam-qr-result"></span>
+    <br>
+    <b>Last detected at: </b>
+    <span id="cam-qr-result-timestamp"></span>
+    <hr>
+</div>
 
 <script type="module">
     import QrScanner from "../scanqr/qr-scanner-master/qr-scanner.min.js";

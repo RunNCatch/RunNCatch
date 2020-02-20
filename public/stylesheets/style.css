@@ -357,7 +357,7 @@ a {
     height: 60px; }
 
 .camera-container {
-  width: calc(85vh); }
+  height: 75vh; }
 
 .qrcontainer {
   position: fixed;
