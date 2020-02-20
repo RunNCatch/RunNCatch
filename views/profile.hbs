@@ -1,7 +1,15 @@
-{{user.username}}
-{{user.email}}
-<a href="/profile/edit/{{user._id}}">edit</a>
-<div></div>
+<div class="profile-detail">
+  <div class="profile-info">
+    <img class="detail-image" src={{user.image}} />
+    <h2>{{user.username}}</h2>
+    <p>{{user.email}}</p>
+    {{#if user.level }}
+    <p>Nivel {{user.level}}</p>
+    {{/if}}
+    <a href="/profile/edit/{{user._id}}">edit</a>
+  </div>
+</div>
+
 {{#each user.events}}
 <div class="list-element">
   <a href="/results/{{_id}}" class="">
@@ -30,3 +38,7 @@
   {{/is}}
 </div>
 {{/each}}
+
+<div class="update-pos">
+  <Cerrar href="/auth/logout">Cerrar sesión</a>
+</div>

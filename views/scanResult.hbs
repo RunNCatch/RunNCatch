@@ -1,8 +1,12 @@
-<h1>Enhorabuena has disfrutado del evento {{name}}</h1>
-{{#is type "Offers"}}
-Tu oferta te ha dado {{punctuationReward}}
-{{/is}}
-{{#is type "Missions"}}
-Tu mision te ha dado {{punctuationReward}}
-{{/is}}
-<a href="/results">vuelve a los resultados</a>
+<div class="scan-result">
+  <h1>Enhorabuena</h1>
+  <h1>has disfrutado del evento {{name}}</h1>
+  {{#is type "Offers"}}
+  Tu oferta te ha dado {{punctuationReward}}
+  {{/is}}
+  {{#is type "Missions"}}
+  Tu mision te ha dado {{punctuationReward}}
+  {{/is}}
+  <img class="image-result" src="https://acegif.com/wp-content/uploads/gif-good-job.gif">
+  <a href="/results">vuelve a los resultados</a>
+</div>

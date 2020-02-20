@@ -315,6 +315,7 @@ function startMap() {
           title: event.name,
           animation: google.maps.Animation.BOUNCE,
           icon: image
+        
         });
       } else {
         let image = {

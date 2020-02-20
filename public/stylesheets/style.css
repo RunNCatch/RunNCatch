@@ -331,8 +331,8 @@ label {
   height: 1px;
   opacity: 0; }
 
-#text {
-  display: none; }
+.detail-image {
+  width: 200px; }
 
 #qrcode {
   margin-top: 30px; }
@@ -340,5 +340,23 @@ label {
 .new-form {
   display: flex;
   flex-direction: column; }
+
+.profile-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center; }
+
+.image-result {
+  width: 400px; }
+
+.scan-result {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center; }
 
 /*# sourceMappingURL=style.css.map */

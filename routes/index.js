@@ -7,9 +7,9 @@ const uploadCloud = require("../configs/cloudinary.js");
 var NodeGeocoder = require("node-geocoder");
 var options = {
   provider: "google",
-  httpAdapter: "https", 
-  apiKey: "AIzaSyD_62uCU28_3t0RlV0WVDdrGSg0xG0v4j4", 
-  formatter: null 
+  httpAdapter: "https",
+  apiKey: "AIzaSyD_62uCU28_3t0RlV0WVDdrGSg0xG0v4j4",
+  formatter: null
 };
 var geocoder = NodeGeocoder(options);
 
@@ -46,7 +46,6 @@ router.get("/results-map", (req, res, next) => {
   console.log(info);
   res.render("results-map", info);
 });
-
 
 router.get("/scanqr", checkAuthenticated(), (requ, res, next) => {
   res.render("readqr");
@@ -107,7 +106,11 @@ router.get("/results/:id", (req, res, next) => {
   Events.findById(req.params.id)
     .then(eventFound => {
       let info = {
-        event: eventFound
+        event: eventFound,
+        day: eventFound.start.getDate(),
+        hours: eventFound.start.getHours(),
+        minutes: eventFound.start.getMinutes(),
+        date: eventFound.start.getDay()
       };
       if (req.user) {
         info.rol = req.user.rol;
@@ -138,7 +141,6 @@ router.get("/scangenerated/:id", (req, res, next) => {
     });
 });
 
-
 router.post("/results", (req, res, next) => {
   let filter = req.body.filter;
   Events.find({
@@ -148,12 +150,16 @@ router.post("/results", (req, res, next) => {
       { type: { $regex: filter, $options: "i" } }
     ]
   })
-    .then(eventsFound =>
-      res.render("results", {
-        events: eventsFound,
-        rol: req.user ? req.user.role : "Customer"
-      })
-    )
+    .then(eventsFound => {
+      let info = {
+        events: eventsFound
+      };
+      if (req.user) {
+        info.rol = req.user.rol;
+        info.id = req.user.id;
+      }
+      res.render("results", info);
+    })
     .catch(err => {
       console.error("Error connecting to mongo");
       next(err);
@@ -196,7 +202,7 @@ router.post("/profile/edit/:id", (req, res, next) => {
     username: req.body.username,
     email: req.body.email,
     password: req.body.password,
-    image: req.body.url 
+    image: req.body.url
   };
   Users.findByIdAndUpdate(req.params.id, newUser).then(userFound =>
     res.redirect("/all-users")
@@ -215,7 +221,7 @@ router.get("/edit-event/:id", checkRoles("Admin"), (req, res, next) => {
       };
       if (req.user) {
         info.rol = req.user.rol;
-        info.id = req.user.id
+        info.id = req.user.id;
       }
       res.render("edit-event", info);
     })

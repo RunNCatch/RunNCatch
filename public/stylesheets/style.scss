@@ -404,10 +404,12 @@ label {
   height: 1px;
   opacity: 0;
 }
-
+.detail-image {
+  width: 200px;
+}
 //CSS PARA OTRO QR
 #text {
-  display: none;
+  // display: none;
 }
 #qrcode {
   // width: 160px;
@@ -418,4 +420,25 @@ label {
 .new-form {
   display: flex;
   flex-direction: column;
+}
+
+//CSS PARA EL PERFIL
+.profile-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+}
+.image-result{
+  width:400px;
+}
+
+.scan-result{
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
