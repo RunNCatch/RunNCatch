@@ -1,5 +1,8 @@
-<h1>¡Muchas gracias por participar en nuestras misiones!</h1>
-<h2>Por la actividad de:{{event.name}}</h2>
-<h2>Has recibido una puntuación de: {{event.punctuationReward}} puntos</h2>
-<input type="image" src="{{event.image}}" alt="Event image">
-<a href="/results" class="button">Volver a mapas</a>
+<h1>Enhorabuena has disfrutado del evento {{name}}</h1>
+{{#is type "Offers"}}
+Tu oferta te ha dado {{punctuationReward}}
+{{/is}}
+{{#is type "Missions"}}
+Tu mision te ha dado {{punctuationReward}}
+{{/is}}
+<a href="/results">vuelve a los resultados</a>

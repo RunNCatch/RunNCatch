@@ -61,36 +61,46 @@ router.get("/qr", (req, res, next) => {
 // })
 
 //esta url es a la que redirige el scan del QR, el ID es el de la base de datos de cada uno en MONGO. coge la informacion del usuario de la session y le hace un find and update con la info del evento. la vista scanResult te da la enhorabuena y te ofrece volver a los resultaods de ofertas y tal
-router.post("/scan/:id", checkAuthenticated(), (req, res, next) => {
+router.get("/scanresult/:id", checkAuthenticated(), (req, res, next) => {
   let userId = req.user.id;
   let eventId = req.params.id;
   let newEvent = {};
   let addEvent = {};
-  Events.findById(eventId)
-    .then(eventFound => {
-      newEvent = eventFound;
-      addEvent = {
-        punctuation: punctuation + eventFound.punctuationReward,
-        events: events.push(eventFound)
-      };
+  let oldpunctuation;
+  let oldevents;
+  Users.findById(userId)
+    .then(userFound => {
+      console.log("userFound", userFound)
+      oldpunctuation = userFound.punctuation;
+      oldevents = userFound.events;
     })
-    .then(user.findByIDandUpdate(userId, addEvent))
-    .then(res.render("scanResult", { newEvent }))
-    .catch(err => {
-      console.error("Error connecting to mongo");
-      next(err);
-    });
+    .then(
+      Events.findById(eventId)
+        .then(eventFound => {
+          console.log("eventfound", eventFound)
+          newEvent = eventFound;
+          oldevents.push(eventId);
+          addEvent = {
+            punctuation: oldpunctuation + eventFound.punctuationReward,
+            events: oldevents
+          };
+        })
+        .then(() => Users.findByIdAndUpdate(userId, addEvent))
+        .then(() => res.render("scanResult", newEvent))
+        .catch(err => {
+          console.error("Error connecting to mongo");
+          next(err);
+        })
+    );
 });
 
 //FALTARIA ORDENAR POR CERCANIA. EL ADMIN DEBERIA PODER VER BOTONES DE EDITAR Y BORRAR
 router.get("/results", (req, res, next) => {
-
   Events.find()
     .then(eventsFound => {
       res.render("results", {
         events: eventsFound,
-        rol: req.user ? req.user.rol : "Customer",
-
+        rol: req.user ? req.user.rol : "Customer"
       });
       console.log("req.user.rol", req.user);
     })
@@ -100,11 +110,10 @@ router.get("/results", (req, res, next) => {
     });
 });
 
-//FUNCIONA renderiza solo el resultado de un evento cuando haces click, si eres admin te sale el codigo QR
-router.get("/scanresults/:id", (req, res, next) => {
+router.get("/results/:id", (req, res, next) => {
   Events.findById(req.params.id)
     .then(eventFound => {
-      res.render("scanResult", {
+      res.render("results-detail", {
         event: eventFound,
         rol: req.user ? req.user.rol : "Customer"
       });
@@ -114,12 +123,17 @@ router.get("/scanresults/:id", (req, res, next) => {
       next(err);
     });
 });
+//FUNCIONA renderiza solo el resultado de un evento cuando haces click, si eres admin te sale el codigo QR
+
+
 router.get("/scangenerated/:id", (req, res, next) => {
   Events.findById(req.params.id)
     .then(eventFound => {
+      let url = `${process.env.URL}scanresult/${req.params.id}`;
       res.render("scangenerated", {
         event: eventFound,
-        rol: req.user ? req.user.rol : "Customer"
+        rol: req.user ? req.user.rol : "Customer",
+        url
       });
     })
     .catch(err => {
@@ -174,6 +188,7 @@ router.post("/results", (req, res, next) => {
 //tambien aparece el historial de eventos que has hecho
 router.get("/profile/:id", checkAuthenticated(), (req, res, next) => {
   Users.findById(req.params.id)
+    .populate("events")
     .then(userFound =>
       res.render("profile", {
         user: userFound,
@@ -252,22 +267,25 @@ router.post(
       })
       .then(() => {
         let location = { type: "Point", coordinates: [lat, lng] };
-        Events.create({
+        let event = {
           name: req.body.name,
           description: req.body.description,
           duration: req.body.duration,
           start: req.body.start,
           type: req.body.type,
           punctuacionReward: req.body.punctuationReward,
-          image: req.file.url,
           location: location
-        }).then(() => {
+        };
+        if (req.file) {
+          event.image = req.file.url;
+        }
+        Events.create(event).then(() => {
           res.redirect("/admin");
         });
       });
   }
 );
-//FUNCIONArecibe los cambios del evento
+
 router.post("/edit-event/:id", checkRoles("Admin"), (req, res, next) => {
   let lat, lng;
   geocoder
@@ -299,6 +317,7 @@ router.post("/edit-event/:id", checkRoles("Admin"), (req, res, next) => {
 //FUNCIONA
 router.get("/all-users", checkRoles("Admin"), (req, res, next) => {
   Users.find()
+    .populate("events")
     .then(usersFound => {
       res.render("all-users", { usersFound });
     })

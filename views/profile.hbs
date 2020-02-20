@@ -1,7 +1,32 @@
-<h1>Perfil de user</h1>
 {{user.username}}
 {{user.email}}
-
- <div>
-    <a href="/auth/logout">Logout</a>
+<a href="/profile/edit/{{user._id}}">edit</a>
+<div></div>
+{{#each user.events}}
+<div class="list-element">
+  <a href="/results/{{_id}}" class="">
+    <div class="list-info">
+      <div class="list picture">
+        <img src={{image}} />
+      </div>
+      <div class="list-name">
+        <h3>{{name}}</h3>
+      </div>
+    </div>
+  </a>
+  {{#is ../rol "Admin"}}
+  <div class="list-buttons">
+    <a href="/delete-event/{{_id}}">
+      <div class="list-delete button">
+        <h3>DELETE</h3>
+      </div>
+    </a>
+    <a href="/edit-event/{{_id}}">
+      <div class="list-edit button">
+        <h3>EDIT</h3>
+      </div>
+    </a>
   </div>
+  {{/is}}
+</div>
+{{/each}}

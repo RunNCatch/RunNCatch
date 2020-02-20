@@ -136,7 +136,7 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00b7ff; }
+  text-decoration: none; }
 
 #btn-init {
   display: flex;
@@ -163,7 +163,7 @@ a {
 
 .head {
   margin: 15px;
-  background-color: #FAFF00; }
+  background-color: #faff00; }
   .head :hover {
     background-color: white; }
   .head a {
@@ -181,7 +181,7 @@ a {
   .menu div {
     width: 28vw;
     height: 40px;
-    background-color: #FAFF00;
+    background-color: #faff00;
     display: flex;
     justify-content: center;
     align-items: center; }
@@ -206,15 +206,51 @@ a {
   #update-pos a {
     font-size: 20px;
     font-weight: bold;
-    color: #FAFF00;
+    color: #faff00;
     text-align: center;
     text-decoration: none; }
 
-.list {
-  width: 100vw; }
-  .list img {
-    width: 400px;
-    height: 300px; }
+.form-control {
+  width: 100%; }
+
+.list-name {
+  display: flex;
+  align-items: center;
+  margin-left: 20px; }
+
+.list-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 10px;
+  justify-content: space-evenly;
+  height: 100%;
+  text-align: center; }
+  .list-buttons .list-delete {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center; }
+
+.list a {
+  text-decoration: none; }
+
+.list-info {
+  display: flex; }
+
+.list-element {
+  color: black;
+  text-transform: uppercase;
+  background-color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  align-items: center;
+  height: 90px;
+  display: flex;
+  justify-content: space-between; }
+
+.list img {
+  width: 100px;
+  height: 90px; }
 
 .form-container {
   display: flex;
@@ -223,11 +259,11 @@ a {
   align-items: center;
   margin: 40px; }
   .form-container label {
-    color: #FAFF00;
+    color: #faff00;
     margin: 5px; }
   .form-container input {
     margin: 5px;
-    background-color: #FAFF00;
+    background-color: #faff00;
     color: black;
     height: 40px;
     text-align: center;
@@ -235,8 +271,27 @@ a {
   .form-container button {
     margin: 5px;
     border: none;
-    color: #FAFF00;
+    color: #faff00;
     background-color: black; }
+
+#btn-init {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20vh; }
+  #btn-init a {
+    width: 300px;
+    height: 260px; }
+  #btn-init img {
+    width: 300px;
+    height: 260px;
+    position: absolute; }
+  #btn-init svg {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    top: 60px;
+    left: 75px; }
 
 body,
 input {
