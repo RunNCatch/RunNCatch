@@ -60,7 +60,11 @@ router.get("/scanresult/:id", checkAuthenticated(), (req, res, next) => {
   Users.findById(userId)
     .then(userFound => {
       console.log("userFound", userFound);
-      oldpunctuation = userFound.punctuation;
+      if (userFound.punctuation) {
+        oldpunctuation = userFound.punctuation;
+      } else {
+        oldpunctuation = 0;
+      }
       if (userFound.events) {
         oldevents = userFound.events;
       } else {

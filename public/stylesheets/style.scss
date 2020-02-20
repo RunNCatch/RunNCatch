@@ -139,7 +139,6 @@ body {
   color: white;
   padding: 50px;
   font-family: "Roboto";
-  
 }
 
 a {
@@ -155,10 +154,9 @@ a {
   align-items: center;
   margin: 20vh;
 
-  a{
+  a {
     width: 300px;
     height: 260px;
-    
   }
   img {
     width: 300px;
@@ -228,18 +226,15 @@ a {
 
   div:hover {
     background-color: white;
-  
   }
 
   a {
     font-size: 20px;
-   
+
     color: black;
     text-decoration: none;
     text-align: center;
-    }
-  
-
+  }
 }
 
 //CSS RESULTS/MAP
@@ -279,12 +274,12 @@ a {
   margin: 15px;
   margin-top: 30px;
 
-  input{
+  input {
     height: 40px;
   }
 }
 
-.form-control{
+.form-control {
   width: 100%;
 }
 
@@ -302,7 +297,7 @@ a {
   justify-content: space-evenly;
   height: 100%;
   text-align: center;
-  
+
   .list-delete {
     display: flex;
     text-align: center;
@@ -328,11 +323,10 @@ a {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   align-items: center;
-  height:120px;
+  height: 120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
 //CSS PARA RESULTS
@@ -356,44 +350,44 @@ a {
 }
 
 //CSS RESULTS-DETAIL
-.detail-event{
+.detail-event {
   margin: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+
   h1 {
     font-size: 25px;
     text-transform: uppercase;
     color: #faff00;
-    margin-top:20px;
+    margin-top: 20px;
     text-align: center;
   }
-  .detail-flex{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;  
-  align-items: center;
-  margin: 20px;
+  .detail-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
   }
 
-  .background-white{
+  .background-white {
     background-color: white;
     width: 200px;
     height: 200px;
-    img{
+    img {
       height: 200px;
       width: 200px;
     }
   }
 
-  .detail-text{
+  .detail-text {
     text-align: center;
     margin: 20px;
     width: 80vw;
 
-    p{ 
+    p {
       font-size: 20px;
       font-weight: lighter;
       line-height: 1.3;
@@ -409,10 +403,10 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    a{
-     color: black;
-     font-weight: bold;
-     text-align: center;
+    a {
+      color: black;
+      font-weight: bold;
+      text-align: center;
     }
   }
 }
@@ -448,13 +442,10 @@ a {
 }
 
 // CSS PARA EL QR
-// .camera-container {
-//   contain:content;
-//   width: auto;
-// }
-// .qr-video {
-//   width: auto;
-// }
+.camera-container {
+  width: calc(100vh-80px);
+}
+
 .qrcontainer {
   position: fixed;
   z-index: -1;
@@ -521,11 +512,11 @@ label {
   padding-right: 15px;
   text-align: center;
 }
-.image-result{
-  width:400px;
+.image-result {
+  width: 400px;
 }
 
-.scan-result{
+.scan-result {
   width: 100vw;
   display: flex;
   align-items: center;
