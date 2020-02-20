@@ -11,7 +11,7 @@ function startMap() {
     lng: -3.6982763
   };
   const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 14,
+    zoom: 13,
     center: yourPosition,
     mapTypeControl: false,
     streetViewControl: false,
@@ -276,7 +276,7 @@ function startMap() {
         map.setCenter(user_location);
 
         let image = {
-          url: "../images/marker.png"
+          url: "../images/iconopequeño.png",
         };
 
 
@@ -289,7 +289,7 @@ function startMap() {
           map: map,
           title: "You are here.",
           animation: google.maps.Animation.BOUNCE,
-          // icon: image
+          icon: image
         });
       },
       function() {
@@ -302,17 +302,37 @@ function startMap() {
 
   axios.get("/eventsForAxios").then(events => {
     events.data.forEach(event => {
-      // if (event.start == Date.now){
-      let marker = new google.maps.Marker({
-        position:{
-          lat: event.location.coordinates[0],
-          lng: event.location.coordinates[1]
-        },
-        map: map,
-        title: event.name,
-        animation: google.maps.Animation.DROP,
-      });
-    // }
+      if (event.type === "Offers"){
+        let image = {
+          url: "../images/ocioicono.png",
+        };
+        let marker = new google.maps.Marker({
+          position:{
+            lat: event.location.coordinates[0],
+            lng: event.location.coordinates[1]
+          },
+          map: map,
+          title: event.name,
+          animation: google.maps.Animation.BOUNCE,
+          icon: image
+        });
+      } else {
+        let image = {
+          url: "../images/missionsicono.png",
+        };
+        let marker = new google.maps.Marker({
+          position:{
+            lat: event.location.coordinates[0],
+            lng: event.location.coordinates[1]
+          },
+          map: map,
+          title: event.name,
+          animation: google.maps.Animation.BOUNCE,
+          icon: image
+        });
+      }
+
+
     });
 });
 }

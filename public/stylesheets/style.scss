@@ -128,7 +128,9 @@ table {
   border-spacing: 0;
 }
 
-* {
+//CSS PROPIO
+
+*{
   box-sizing: border-box;
 }
 
@@ -144,13 +146,42 @@ a {
   text-decoration: none;
 }
 
-//CSS propio
+//CSS PARA BOTON/SVG INDEX
+
+#btn-init {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20vh;
+  a{
+    width: 300px;
+    height: 260px;
+  }
+  img{
+    width: 300px;
+    height: 260px;
+    position: absolute;
+  }
+
+  svg{
+    width: 150px;
+    height: 130px;
+    position: relative;
+    top:60px;
+    left: 75px;
+  }
+}
+
+//CSS NAV
 
 .nav {
   background-color: black;
   // position: fixed;
+  // top: 0;
   width: 100vw;
 }
+
+//CSS NAV/HEAD
 
 .head {
   margin: 15px;
@@ -166,6 +197,8 @@ a {
     color: black;
   }
 }
+
+//CSS NAV/MENU
 
 .menu {
   margin: 15px;
@@ -196,18 +229,14 @@ a {
   }
 }
 
+//CSS RESULTS/MAP
+
 #map {
   height: 100vh;
   width: 100%;
 }
 
-#map-container {
-  display: block;
-}
-
-#list-container {
-  display: block;
-}
+//CSS RESULTS/MAP BOTON UPDATE
 
 #update-pos {
   margin: 15px;

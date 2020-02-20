@@ -7,6 +7,7 @@ const userSchema = new Schema({
   username: String,
   email: String,
   password: String,
+  image: String,
   rol: {type: String, enum: ["Customer", "Admin"], default: "Customer"},
   punctuation: Number,
   level: Number,

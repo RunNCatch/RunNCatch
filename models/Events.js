@@ -12,7 +12,7 @@ const eventSchema = new Schema({
   location: { type: { type: String }, coordinates: [Number] },
   levelRequiered: Number,
   punctuationReward: Number,
-  image: String, //Faltaria poner la hora de inicio
+  image: String,
   qrCode: String
 }, {
   timestamps: {
