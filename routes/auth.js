@@ -14,7 +14,7 @@ router.get("/login", (req, res, next) => {
 router.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/",
+    successRedirect: "/results-map",
     failureRedirect: "/auth/login",
     failureFlash: true,
     passReqToCallback: true
@@ -50,7 +50,7 @@ router.post("/signup", (req, res, next) => {
     newUser
       .save()
       .then(() => {
-        res.redirect("/");
+        res.redirect("/results-map");
       })
       .catch(err => {
         res.render("auth/signup", { message: "Something went wrong" });

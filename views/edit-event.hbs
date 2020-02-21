@@ -13,43 +13,47 @@
   {{/is}}
   {{#is rol "Customer"}} 
   <div>
-    <a href="/profile/{{id}}"><div>PERFIL</div></a>
+    <a href="/admin"><div>ADMIN</div></a>
   </div>
   {{/is}}
   {{#unless rol}} 
   <div>
-    <a href="/auth/login"><div>LOGIN</div></a>
+    <a href="/admin"><div>ADMIN</div></a>
   </div>
   {{/unless}}
 </div>
   
 <div>
   <form action="/edit-event/{{event._id}}" method="POST" class="new-form">
-    <input name="name" type="text" class="form-control" id="name-input" placeholder="name" value="{{event.name}}">
+    <input name="name" type="text" class="form-control" id="name-input" placeholder="Nombre" value="{{event.name}}">
+    <textarea name="description" type="text" class="form-control description" id="description-input" placeholder="Descripción"
+    >{{event.description}}</textarea>   
     <select name="type">
       <option value="Offers">Offers</option>
       <option value="Missions">Missions</option>
     </select>
-    <input name="description" type="text" class="form-control" id="description-input" placeholder="description"
-      value="{{event.description}}">
+    <select name="tag">
+      <option value="culture">Cultura</option>
+      <option value="relax">Relax</option>
+      <option value="restoration">Restauración</option>
+      <option value="shopping">Compras</option>
+    </select>
     <input type="datetime-local" id="meeting-time" name="start" value="2020-02-21T19:30" min="2020-01-01T00:00"
       max="2020-12-31T00:00">
-    <select name="tag">
-      <option value="culture">culture</option>
-      <option value="relax">relax</option>
-      <option value="restoration">restoration</option>
-      <option value="shopping">shopping</option>
-    </select>
-    <input name="duration" type="number" class="form-control" id="inversions-input" placeholder="duration"
+    <input name="duration" type="number" class="form-control" id="inversions-input" placeholder="Duración"
       value="{{event.duration}}">
-    <input name="location" type="text" class="form-control" id="length-input" placeholder="location" value="Madrid">
+    <input name="location" type="text" class="form-control" id="length-input" placeholder="Localización" value="Madrid">
     <input name="punctuationReward" type="number" class="form-control" id="length-input"
       placeholder="punctuation reward" value="{{event.punctuationReward}}">
-    <input name="levelRequiered" type="number" class="form-control" id="length-input" placeholder="level required"
+    <input name="levelRequiered" type="number" class="form-control" id="length-input" placeholder="Nivel requerido"
       value="{{event.levelRequiered}}">
-    <input name="discount" type="number" class="form-control" id="length-input" placeholder="discount"
+    <input name="discount" type="number" class="form-control" id="length-input" placeholder="Descuento"
       value="{{event.discount}}">
-    <input name="image" type="file" class="form-control" id="length-input" placeholder="image url">
-    <button type="submit" class="btn btn-dark">Edit event</button>
+    <input name="image" type="file" class="form-control" id="length-input" placeholder="Seleccionar imagen">
+    <button type="submit" class="btn btn-dark">Editar evento</button>
   </form>
 </div>
+
+  <div class="button-back">
+    <a href="/results">Volver a listado</a>
+  </div>

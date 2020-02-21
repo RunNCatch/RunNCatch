@@ -13,25 +13,42 @@
   {{/is}}
   {{#is rol "Customer"}} 
   <div>
-    <a href="/profile/{{id}}"><div>PERFIL</div></a>
+    <a href="//profile/{{id}}"><div>PERFIL</div></a>
   </div>
   {{/is}}
   {{#unless rol}} 
   <div>
-    <a href="/auth/login"><div>LOGIN</div></a>
+    <a href="/admin"><div>ADMIN</div></a>
   </div>
   {{/unless}}
 </div>
 
-</div><h1>editar perfil</h1>
-{{user.username}}
+</div>
 <form action="/profile/edit/{{user._id}}" method="POST" class="new-form">
-  <input name="username" type="text" class="form-control" id="name-input" placeholder="username" value="{{event.name}}">
-  <input name="email" type="text" class="form-control" id="description-input" placeholder="email"
-    value="{{event.description}}">
-  <input name="image" type="text" class="form-control" id="length-input" placeholder="image url"
+  <input name="username" type="text" class="form-control" id="name-input" placeholder="Nombre" value="{{user.username}}">
+  <input name="email" type="text" class="form-control" id="description-input" placeholder="Email"
+    value="{{user.email}}">
+  <input name="punctuation" type="text" class="form-control" id="description-input" placeholder="Puntuación"
+    value="{{user.punctuation}}">
+  <input name="level" type="text" class="form-control" id="description-input" placeholder="Nivel"
+    value="{{user.level}}">
+  <input name="image" type="file" class="form-control" id="length-input" placeholder="Seleccionar imagen"
     value="{{event.image}}">
-  <button type="submit" class="btn btn-dark">Edit profile</button>
+  <button type="submit" class="btn btn-dark">Editar perfil</button>
 </form>
-<h2>puntuacion {{user.punctuation}}</h2>
-<h2>nivel {{user.level}}</h2>
+
+{{#is rol "Customer"}} 
+<div class="button-back">
+  <a href="/profile/{{id}}">Volver a Perfil</a>
+</div>
+{{/is}}
+
+{{#is rol "Admin"}}  
+<div class="button-back">
+  <a href="/all-users">Lista Usuarios</a>
+</div>
+{{/is}}
+
+<div class="update-pos">
+  <a href="/auth/logout">Cerrar sesión</a>
+</div>

@@ -151,6 +151,7 @@ a {
 
 #btn-init {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 20vh;
@@ -183,6 +184,9 @@ a {
   // top: 0;
   // height: 50px;
   width: 100vw;
+  :hover {
+    background-color: white;
+  }
 }
 
 //CSS NAV/HEAD
@@ -233,7 +237,6 @@ a {
 
   a {
     font-size: 20px;
-   
     color: black;
     text-decoration: none;
     text-align: center;
@@ -288,10 +291,30 @@ a {
   width: 100%;
 }
 
+.list-user{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .list-name {
   display: flex;
   align-items: center;
-  margin-left: 5px;
+  margin-left: 10px;
+  line-height: 1.3;
+
+  h3{
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  }
+  
+  p{
+  color: black;
+  font-size: 12px;
+  }
+
 }
 
 .list-buttons {
@@ -318,7 +341,9 @@ a {
 }
 .list-info {
   display: flex;
-  margin: 0;
+
+  margin: 0;  
+  height: 120px;
 }
 .list-element {
   margin: 15px;
@@ -417,6 +442,33 @@ a {
   }
 }
 
+.button-back {
+  background-color: #faff00;
+  color: black;
+  width: 90vw;
+  height: 30px;
+  margin: auto;
+  margin-bottom: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  a{
+   color: black;
+   font-weight: bold;
+   text-align: center;
+  }
+}
+
+.btn-dark {
+  margin: auto;
+  font-size: 20px;
+  border: none;
+  background-color: black;
+  color: #faff00;
+  width: 90vw;
+  height: 60px;
+}
+
 //CSS PARA LOGIN Y SIGN UP
 
 .form-container {
@@ -507,10 +559,60 @@ label {
   margin-top: 30px;
 }
 
+//CSS FORMULARIOS
+
 .new-form {
   display: flex;
   flex-direction: column;
+  margin: 15px;
+  
+
+  input{
+    background-color: black;
+    color: white;
+    border: 2px solid rgb(138, 138, 138);
+    margin-bottom: 5px;
+    height: 40px;
+    padding: 3px;
+    font-family: "Roboto";
+    font-size: 20px;
+  }
+  input[type=”file”]{
+    background-color: white ; 
+  }
+
+  textarea{
+    background-color: black;
+    color: white;
+    border: 2px solid rgb(138, 138, 138);
+    margin-bottom: 5px;
+    height: 120px;
+    padding: 3px;
+    font-family: "Roboto";
+    line-height: 1.4;
+    font-size: 20px;
+  }
+
+  select{
+    background-color: black;
+    color: white;
+    border: 2px solid rgb(138, 138, 138);
+    margin-bottom: 5px;
+    border-radius: 0;
+    height: 40px;
+    padding: 3px;
+    font-family: "Roboto";
+    font-size: 20px;
+  }
+
+  #meeting-time{
+    width: 100%,
+  }
 }
+
+
+
+
 
 //CSS PARA EL PERFIL
 .profile-detail {

@@ -9,7 +9,7 @@
   
   {{#is rol "Admin"}}  
   <div>
-    <a href="/admin"><div>ADMIN</div></a>
+    <a href="/profile/{{id}}"><div>PERFIL</div></a>
   </div>
   {{/is}}
   {{#is rol "Customer"}} 
@@ -19,7 +19,7 @@
   {{/is}}
   {{#unless rol}} 
   <div>
-    <a href="/auth/login"><div>LOGIN</div></a>
+    <a href="/profile/{{id}}"><div>PERFIL</div></a>
   </div>
   {{/unless}}
 </div>

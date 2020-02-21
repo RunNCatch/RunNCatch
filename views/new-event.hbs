@@ -13,12 +13,12 @@
   {{/is}}
   {{#is rol "Customer"}} 
   <div>
-    <a href="/profile/{{id}}"><div>PERFIL</div></a>
+    <a href="/admin"><div>ADMIN</div></a>
   </div>
   {{/is}}
   {{#unless rol}} 
   <div>
-    <a href="/auth/login"><div>LOGIN</div></a>
+    <a href="/admin"><div>ADMIN</div></a>
   </div>
   {{/unless}}
 </div>
@@ -27,31 +27,39 @@
 
 <div>
   <form action="/new-event" method="POST" class="new-form" enctype='multipart/form-data'>
-    <input name="name" type="text" class="form-control" id="name-input" placeholder="name">
+    <input name="name" type="text" class="form-control" id="name-input" placeholder="Nombre">
+    <textarea name="description" type="text" class="form-control" id="description-input" placeholder="Descripción"></textarea>
     <select name="type">
-      <option value="Offers">Offers</option>
-      <option value="Missions">Missions</option>
+      <option value="">-</option>
+      <option value="Offers">Oferta</option>
+      <option value="Missions">Misión</option>
     </select>
-    <input name="description" type="text" class="form-control" id="description-input" placeholder="description">
+    <select name="tag">
+      <option value="">-</option>
+      <option value="culture">Cultura</option>
+      <option value="relax">Relax</option>
+      <option value="restoration">Restauración</option>
+      <option value="shopping">Compras</option>
+    </select>
     <input type="datetime-local" id="meeting-time" name="start" value="2020-02-21T19:30" min="2020-01-01T00:00"
       max="2020-12-31T00:00">
-    <select name="tag">
-      <option value="culture">culture</option>
-      <option value="relax">relax</option>
-      <option value="restoration">restoration</option>
-      <option value="shopping">shopping</option>
-    </select>
-    <input name="duration" type="number" class="form-control" id="inversions-input" placeholder="duration min">
-    <input name="location" type="text" class="form-control" id="length-input" placeholder="location">
+    <input name="duration" type="number" class="form-control" id="inversions-input" placeholder="Duración ">
+    <input name="location" type="text" class="form-control" id="length-input" placeholder="Localización">
     <input name="punctuationReward" type="number" class="form-control" id="length-input"
       placeholder="punctuationReward">
-    <input name="levelRequiered" type="number" class="form-control" id="length-input" placeholder="levelRequiered">
-    <input name="discount" type="number" class="form-control" id="length-input" placeholder="discount">
-    <input name="image" type="file" class="form-control" id="length-input" placeholder="image url">
-    <button type="submit" class="btn btn-dark">Create event</button>
+    <input name="levelRequiered" type="number" class="form-control" id="length-input" placeholder="Nivel requerido">
+    <input name="discount" type="number" class="form-control" id="length-input" placeholder="Descuento">
+    <input name="image" type="file" class="form-control" id="length-input" placeholder="Seleccionar imagen">
+    <button type="submit" class="btn-dark">Crear evento</button>
   </form>
 </div>
-<a href="/all-users">users list</a>
+ <div class="button-back">
+  <a href="/all-users">Lista Usuarios</a>
+</div>
+
+<div class="update-pos">
+  <a href="/auth/logout">Cerrar sesión</a>
+</div>
 
 {{!-- name: req.body.name,
 description: req.body.description,

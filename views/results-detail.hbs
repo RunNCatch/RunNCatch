@@ -65,13 +65,11 @@
 
     </div>
   </div>
-
+ {{#is rol "Admin"}}
   <div class="btn-back">
-    {{#is rol "Admin"}}
     <a href=/scangenerated/{{event._id}}>Generar QR</a>
-    {{/is}}
   </div>
-
+{{/is}}
   <div class="btn-back">
     <a href="/results">Volver a listado</a>
   </div>
