@@ -276,7 +276,7 @@ function startMap() {
         map.setCenter(user_location);
 
         let image = {
-          url: "../images/iconopequeño.png",
+          url: "../images/iconopequeno.png",
         };
 
 

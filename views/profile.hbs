@@ -25,14 +25,21 @@
 
 <div class="profile-detail">
   <div class="profile-info">
-    <img class="detail-image" src={{user.image}} />
-    <h2>{{user.username}}</h2>
-    <p>{{user.punctuation}}</p>
-    {{#if user.level }}
-    <p>Nivel {{user.level}}</p>
-    {{/if}}
-    <div class="btn-dark">
-      <a href="/profile/edit/{{user._id}}">Editar</a>
+    <div>
+      <img class="detail-image" src={{user.image}} />
+    </div>
+    
+    <div class="profile-text">
+      <div>
+        <h2>{{user.username}}</h2>
+        <p>Puntuación: {{user.punctuation}}</p>
+        {{#if user.level }}
+        <p>Nivel: {{user.level}}</p>
+        {{/if}}
+      </div>
+      <div class="button-dark">
+        <a href="/profile/edit/{{user._id}}">Editar</a>
+      </div>
     </div>
     
   </div>

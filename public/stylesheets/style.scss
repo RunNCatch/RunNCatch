@@ -546,9 +546,7 @@ label {
   height: 1px;
   opacity: 0;
 }
-.detail-image {
-  width: 200px;
-}
+
 //CSS PARA OTRO QR
 #text {
   // display: none;
@@ -617,12 +615,53 @@ label {
 //CSS PARA EL PERFIL
 .profile-detail {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding-left: 15px;
-  padding-right: 15px;
   text-align: center;
+  margin: 15px;
+
+  .profile-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .profile-text{
+    width: 100%;
+    height: 200px;
+    line-height: 1.3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    h2{
+      font-size: 23px;
+      font-weight: bold;
+    }
+
+    p{
+      font-size: 15px;
+    }
+  }
 }
+.button-dark {
+  font-size: 20px;
+  border: none;
+  background-color: black;
+  bottom: 0;
+  a{
+    color: #faff00;
+    text-align: center;
+  }
+}
+
+.detail-image {
+  width: 100%;
+}
+
 .image-result{
   width:400px;
 }
