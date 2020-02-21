@@ -1,24 +1,34 @@
 <div class="menu">
   <div class="click-maps">
-    <a href="/results-map"><div><span>MAPAS</span></div></a>
+    <a href="/results-map">
+      <div><span>MAPAS</span></div>
+    </a>
   </div>
   <div class="click-list">
-    <a href="/results"><div>LISTADO</div></a>
+    <a href="/results">
+      <div>LISTADO</div>
+    </a>
   </div>
-  
-  {{#is rol "Admin"}}  
+
+  {{#is rol "Admin"}}
   <div>
-    <a href="/admin"><div>ADMIN</div></a>
+    <a href="/admin">
+      <div>ADMIN</div>
+    </a>
   </div>
   {{/is}}
-  {{#is rol "Customer"}} 
+  {{#is rol "Customer"}}
   <div>
-    <a href="/profile/{{id}}"><div>PERFIL</div></a>
+    <a href="/profile/{{id}}">
+      <div>PERFIL</div>
+    </a>
   </div>
   {{/is}}
-  {{#unless rol}} 
+  {{#unless rol}}
   <div>
-    <a href="/auth/login"><div>LOGIN</div></a>
+    <a href="/auth/login">
+      <div>LOGIN</div>
+    </a>
   </div>
   {{/unless}}
 </div>
@@ -37,7 +47,11 @@
           <img src={{image}} />
         </div>
         <div class="list-name">
-          <h3>{{name}}</h3>
+          <h2>{{name}}</h2>
+          <h3>{{punctuationReward}} recompensa</h3>
+          {{#if discount}}
+          <h3 class="discount">{{discount}}% descuento</h3>
+          {{/if}}
         </div>
       </div>
     </a>

@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", () => {
     console.log("IronGenerator JS imported successfully!");
   },false);
@@ -316,7 +318,7 @@ function startMap() {
           map: map,
           title: event.name,
           animation: google.maps.Animation.BOUNCE,
-          url: `http://localhost:3000/results/${event._id}`,
+          url: `https://runncatch.herokuapp.com/results/${event._id}`,
           icon: image
         
         });
@@ -335,7 +337,7 @@ function startMap() {
           map: map,
           title: event.name,
           animation: google.maps.Animation.BOUNCE,
-          url: `http://localhost:3000/results/${event._id}`,
+          url: `https://runncatch.herokuapp.com/results/${event._id}`,
           icon: image
         });
         google.maps.event.addListener(marker, 'click', function() {

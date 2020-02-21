@@ -1,37 +1,49 @@
-
 <div class="menu">
   <div class="click-maps">
-    <a href="/results-map"><div><span>MAPAS</span></div></a>
+    <a href="/results-map">
+      <div><span>MAPAS</span></div>
+    </a>
   </div>
   <div class="click-list">
-    <a href="/results"><div>LISTADO</div></a>
+    <a href="/results">
+      <div>LISTADO</div>
+    </a>
   </div>
-  
-  {{#is rol "Admin"}}  
+
+  {{#is rol "Admin"}}
   <div>
     <a href="/profile/{{id}}"><div>PERFIL</div></a>
   </div>
   {{/is}}
-  {{#is rol "Customer"}} 
+  {{#is rol "Customer"}}
   <div>
-    <a href="/profile/{{id}}"><div>PERFIL</div></a>
+    <a href="/profile/{{id}}">
+      <div>PERFIL</div>
+    </a>
   </div>
   {{/is}}
-  {{#unless rol}} 
+  {{#unless rol}}
   <div>
     <a href="/profile/{{id}}"><div>PERFIL</div></a>
   </div>
   {{/unless}}
 </div>
 <div class="scan-result">
-  <h1>Enhorabuena</h1>
-  <h1>has disfrutado del evento {{name}}</h1>
-  {{#is type "Offers"}}
-  Tu oferta te ha dado {{punctuationReward}}
-  {{/is}}
-  {{#is type "Missions"}}
-  Tu mision te ha dado {{punctuationReward}}
-  {{/is}}
+  <div class="scan-info">
+    <h1 id="enhorabuena">⭐⭐⭐ ENHORABUENA ⭐⭐⭐</h1>
+    <img class="star-result" src="">
+    <br>
+    <h2>has disfrutado del evento </h2>
+    <span class="result-important">{{name}}</span>
+    <br>
+    {{#is type "Offers"}}
+    <h2>Tu oferta te ha dado <span class="result-important">{{punctuationReward}}</span> puntos</h2>
+    {{/is}}
+
+    {{#is type "Missions"}}
+    <h2>Tu misión te ha dado <span class="result-important">{{punctuationReward}}</span> puntos</h2>
+    {{/is}}
+  </div>
   <img class="image-result" src="https://acegif.com/wp-content/uploads/gif-good-job.gif">
-  <a href="/results">vuelve a los resultados</a>
+  <div class="button-back"> <a href="/results">vuelve a los resultados</a></div>
 </div>

@@ -1,8 +1,9 @@
 <style>
     #qr-video {
-        width: 600px;
-        height: 600px;
+        width: 100%;
+        height: calc(100%-60px);
     }
+
     canvas {
         display: none;
     }
@@ -22,16 +23,17 @@
 </style>
 <div class="camera-container">
     <video muted playsinline id="qr-video"></video>
-    <b>Device has camera: </b>
-    <span id="cam-has-camera"></span>
+    {{!-- <b>Device has camera: </b>
+    <span id="cam-has-camera"></span> --}}
 </div>
 
-<b>Detected QR code: </b>
-<span id="cam-qr-result"></span>
-<br>
-<b>Last detected at: </b>
-<span id="cam-qr-result-timestamp"></span>
-<hr>
+<div class="readerqrtext"><b>Detected QR code: </b>
+    <span id="cam-qr-result"></span>
+    <br>
+    <b>Last detected at: </b>
+    <span id="cam-qr-result-timestamp"></span>
+    <hr>
+</div>
 
 <script type="module">
     import QrScanner from "../scanqr/qr-scanner-master/qr-scanner.min.js";
