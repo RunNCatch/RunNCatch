@@ -55,8 +55,10 @@
     </div>
 </div>
 
-{{#each user.events}}
-<div class="list-element">
+
+<div class="parent">
+  {{#each user.events}}
+  <div class="list-element-profile">
   <a href="/results/{{_id}}" class="">
     <div class="list-info">
       <div class="list picture">
@@ -84,6 +86,7 @@
   {{/is}}
 </div>
 {{/each}}
+</div>
 
 <div class="update-pos">
   <a href="/auth/logout">Cerrar sesión</a>

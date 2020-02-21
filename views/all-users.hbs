@@ -24,6 +24,7 @@
 </div>
 
 {{#each usersFound}}
+
 <div class="list-element">
   <a href="/profile/{{_id}}" class="">
     <div class="list-info">
@@ -35,7 +36,7 @@
         <h3>{{username}}</h3>
       </div>
       <div class="list-name">
-        <p>Email: {{email}}</p>
+        <p>{{email}}</p>
       </div>
       <div class="list-name">
         <p>Puntuación: {{punctuation}}</p>
@@ -59,6 +60,7 @@
     </a>
   </div>
 </div>
+
 {{/each}}
  <div class="button-back">
   <a href="/admin">Crear evento</a>

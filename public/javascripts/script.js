@@ -308,7 +308,7 @@ function startMap() {
     events.data.forEach(event => {
       if (event.type === "Offers"){
         let image = {
-          url: "../images/ocioicono.png",
+          url: "../images/cuadrado-azul.png",
         };
         let marker = new google.maps.Marker({
           position:{
@@ -327,7 +327,7 @@ function startMap() {
         });
       } else {
         let image = {
-          url: "../images/missionsicono.png",
+          url: "../images/cuadrado-rojo.png",
         };
         let marker = new google.maps.Marker({
           position:{

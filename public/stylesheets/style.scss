@@ -335,6 +335,12 @@ a {
     align-items: center;
     justify-content: center;
   }
+  .list-edit {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
 }
 .list a {
   color: black;
@@ -357,11 +363,31 @@ a {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   align-items: center;
   height: 120px;
-  width: 100%;
+  // width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   
+}
+
+.list-element-profile {
+  margin-top: 15px;
+  color: black;
+  text-transform: uppercase;
+  background-color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  align-items: center;
+  height: 120px;
+  // width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.parent{
+  display: flex;
+  flex-direction: column;
 }
 
 //CSS PARA RESULTS
@@ -373,6 +399,12 @@ a {
 }
 
 .list-delete {
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}
+.list-edit {
   img {
     width: 20px;
     height: 20px;
