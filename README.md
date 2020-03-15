@@ -6,11 +6,11 @@ RunNCatch is the second project we made at our [Ironhack](https://www.ironhack.c
 
 This project is built upon javascript on exprees with handlebars views.
 It also uses:
-Cloudinary and multer for image uploading 
-Passport and bcrypt for login
-Mongoose and mongodb for database management
-Qr-scanner and Qrcode.js for qr generation and scanning
-Google maps API and geocoder.js for geolocation and map visualization
+- Cloudinary and multer for image uploading 
+- Passport and bcrypt for login
+- Mongoose and mongodb for database management
+- Qr-scanner and Qrcode.js for qr generation and scanning
+- Google maps API and geocoder.js for geolocation and map visualization
 
 
 ## User interface
