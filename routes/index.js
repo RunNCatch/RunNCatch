@@ -90,6 +90,7 @@ router.get("/scanresult/:id", checkAuthenticated(), (req, res, next) => {
         })
     );
 });
+
 router.get("/results", (req, res, next) => {
   Events.find()
     .then(eventsFound => {
