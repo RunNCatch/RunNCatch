@@ -12,6 +12,13 @@ Mongoose and mongodb for database management
 Qr-scanner and Qrcode.js for qr generation and scanning
 Google maps API and geocoder.js for geolocation and map visualization
 
+
+## User interface
+
+![Interface design](/readme-image.png)
+
+[Link to Figma design](https://www.figma.com/file/7hnSdEs2b7tEkloUSqfwpT/Untitled)
+
 ## Getting Started
 
  - The users of RunNCatch can reach important geolocated comercial offers in the city with a very short duration. The offers are showed in a map and als you can search for them.
