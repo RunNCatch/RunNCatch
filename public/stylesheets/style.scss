@@ -1,8 +1,8 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
-
 html,
 body,
 div,
@@ -89,8 +89,8 @@ video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline;
-}
+  vertical-align: baseline; }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -103,91 +103,71 @@ hgroup,
 menu,
 nav,
 section {
-  display: block;
-}
+  display: block; }
+
 body {
-  line-height: 1;
-}
+  line-height: 1; }
+
 ol,
 ul {
-  list-style: none;
-}
+  list-style: none; }
+
 blockquote,
 q {
-  quotes: none;
-}
+  quotes: none; }
+
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
   content: "";
-  content: none;
-}
+  content: none; }
+
 table {
   border-collapse: collapse;
-  border-spacing: 0;
-}
-
-//CSS PROPIO
+  border-spacing: 0; }
 
 * {
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 body {
   background-color: black;
   color: white;
   padding: 50px;
-  font-family: "Roboto";
-}
+  max-width: 700px;
+  font-family: "Ubuntu"; 
+  margin: auto;
+  }
 
 a {
   color: white;
-  text-decoration: none;
-}
-
-//CSS PARA BOTON/SVG INDEX
+  text-decoration: none; }
 
 #btn-init {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 20vh;
-
-  a {
+  margin: 20vh; }
+  #btn-init a {
+    width: 300px;
+    height: 260px; }
+  #btn-init img {
     width: 300px;
     height: 260px;
-  }
-  img {
-    width: 300px;
-    height: 260px;
-    position: absolute;
-  }
-
-  svg {
+    position: absolute; }
+  #btn-init svg {
     width: 150px;
     height: 130px;
     position: relative;
     top: 60px;
-    left: 75px;
-  }
-}
-
-//CSS NAV
+    left: 75px; }
 
 .nav {
   background-color: black;
-  // position: fixed;
-  // top: 0;
-  // height: 50px;
-  width: 100vw;
-  :hover {
-    background-color: white;
-  }
-}
-
-//CSS NAV/HEAD
+  width: 100%; }
+  .nav :hover {
+    background-color: white; }
 
 .head {
   margin: 15px;
@@ -195,59 +175,43 @@ a {
   height: 60px;
   display: flex;
   justify-content: center;
-  align-items: center;
-
-  :hover {
-    background-color: white;
-  }
-
-  a {
+  align-items: center; }
+  .head :hover {
+    background-color: white; }
+  .head a {
     font-size: 40px;
     font-weight: lighter;
     font-family: "Erica One";
     text-align: center;
-    color: black;
-  }
-}
-
-//CSS MENU
+    color: black; }
 
 .menu {
   margin: 15px;
   display: flex;
   flex: column;
   justify-content: space-between;
-  align-items: center;
-
-  div {
-    width: 28vw;
+  align-items: center; }
+  .menu div {
+    width: 30%;
     height: 40px;
     background-color: #faff00;
     display: flex;
     justify-content: center;
-    align-items: center;
-  }
-
-  div:hover {
-    background-color: white;
-  }
-
-  a {
-    font-size: 20px;
+    align-items: center; }
+  .menu a {
+    font-size: 1rem;
     color: black;
     text-decoration: none;
-    text-align: center;
-  }
-}
-
-//CSS RESULTS/MAP
+    text-align: center; }
+  .menu a div {
+    width: 100%;}
+  .menu a div:hover {
+    font-weight: bolder;
+    font-size: 1.1rem; }
 
 #map {
-  height: 100vh;
-  width: 100%;
-}
-
-//CSS RESULTS/MAP BOTON UPDATE
+  margin: 15px;
+  height: 80vh;}
 
 .update-pos {
   background-color: black;
@@ -255,70 +219,52 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 50px;
-  margin: 0;
-
-  a {
+  margin: 0; }
+  .update-pos a {
     font-size: 20px;
     color: #faff00;
     text-align: center;
-    text-decoration: none;
-  }
-}
-
-//CSS Alejandro
+    text-decoration: none; }
 
 .filter {
   height: 40px;
   margin: 15px;
-  margin-top: 30px;
-
-  input {
-    height: 40px;
-  }
-}
+  margin-top: 30px; }
+  .filter input {
+    height: 40px; }
 
 .form-control {
-  width: 100%;
-}
-.discount{
-  color: grey;
-}
-.list-name {
+  width: 100%; }
 
+.discount {
+  color: grey; }
+
+.list-name {
   padding-left: 5px;
   display: flex;
-  // align-items: center;
-  // margin-left: 10px;
   line-height: 1.3;
   align-items: start;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   margin-left: 5px;
-  text-align: left;
-  h2{
+  margin-top: 5px;
+  text-align: left; }
+  .list-name h2 {
     font-weight: bold;
+    color: black; 
+    font-size: 1.5rem;
+  }
+  .list-name h3 {
     color: black;
-  } 
-  
-  h3{
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-  }
-  
-  p{
-  color: black;
-  font-size: 12px;
-  }
-
- 
-}
+    text-decoration: none;
+    font-size: 13px; }
+  .list-name p {
+    color: black;
+    font-size: 12px; }
 
 .list-buttons {
   display: flex;
@@ -327,168 +273,135 @@ a {
   padding-right: 10px;
   justify-content: space-evenly;
   height: 100%;
-  text-align: center;
+  text-align: center; }
+  .list-buttons .list-delete {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center; }
+  .list-buttons .list-edit {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center; }
 
-  .list-delete {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-  }
-  .list-edit {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-  }
-}
 .list a {
   color: black;
   text-decoration: none;
   font-weight: bold;
-  font-size: 15px;
-}
+  font-size: 15px; }
+
 .list-info {
   display: flex;
+  margin: 0;
+  height: 120px; }
 
-  margin: 0;  
-  height: 120px;
-}
 .list-element {
   margin: 15px;
   color: black;
   text-transform: uppercase;
   background-color: white;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Ubuntu";
   align-items: center;
   height: 120px;
-  // width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  
-}
+  align-items: center; }
 
 .list-element-profile {
   margin-top: 15px;
   color: black;
   text-transform: uppercase;
   background-color: white;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Ubuntu";
   align-items: center;
   height: 120px;
-  // width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  
-}
-.parent{
+  align-items: center; }
+
+.parent {
   display: flex;
-  flex-direction: column;
-}
+  flex-direction: column; }
 
-//CSS PARA RESULTS
-.list {
-  img {
-    width: 100px;
-    height: 120px;
-  }
-}
+.list img {
+  width: 100px;
+  height: 120px; }
 
-.list-delete {
-  img {
-    width: 20px;
-    height: 20px;
-  }
-}
-.list-edit {
-  img {
-    width: 20px;
-    height: 20px;
-  }
-}
+.list-delete img {
+  width: 20px;
+  height: 20px; }
 
-//CSS RESULTS-DETAIL
+.list-edit img {
+  width: 20px;
+  height: 20px; }
+
 .detail-event {
   margin: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-
-  h1 {
+  align-items: center; }
+  .detail-event h1 {
     font-size: 25px;
     text-transform: uppercase;
     color: #faff00;
     margin-top: 20px;
-    text-align: center;
-  }
-  .detail-flex {
+    text-align: center; }
+  .detail-event .detail-flex {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin: 20px;
-  }
-
-  .background-white {
     background-color: white;
-    width: 200px;
-    height: 200px;
-    img {
+    margin: 20px 0;
+    padding: 1rem;
+    width: 100%; }
+  .detail-event .background-white {
+    background-color: white;
+    width: 100%;
+    height: 200px; }
+    .detail-event .background-white img {
       height: 200px;
-      width: 200px;
-    }
-  }
-
-  .detail-text {
+      width: 100%; }
+  .detail-event .detail-text {
     text-align: center;
     margin: 20px;
-    width: 80vw;
-
-    p {
+    width: 80vw; 
+    color: black}
+    .detail-event .detail-text p {
       font-size: 20px;
-      font-weight: lighter;
-      line-height: 1.3;
-    }
-  }
-
-  .btn-back {
+      font-weight: bold;
+      line-height: 1.3; }
+  .detail-event .btn-back {
     background-color: #faff00;
     color: black;
-    width: 90vw;
+    width: 100%;
     height: 30px;
     margin: 5px 0;
     display: flex;
     justify-content: center;
-    align-items: center;
-    a {
+    align-items: center; }
+    .detail-event .btn-back a {
       color: black;
       font-weight: bold;
-      text-align: center;
-    }
-  }
-}
+      text-align: center; }
 
 .button-back {
   background-color: #faff00;
   color: black;
-  width: 90vw;
-  height: 30px;
-  margin: auto;
-  margin-bottom: 70px;
+  width: 100%;
+  height: 60px;
+  margin: 15px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  a{
-   color: black;
-   font-weight: bold;
-   text-align: center;
-  }
+  align-items: center; 
 }
+  .button-back a {
+    width: 100%;
+    color: black;
+    font-weight: bold;
+    text-align: center; }
 
 .btn-dark {
   margin: auto;
@@ -496,11 +409,8 @@ a {
   border: none;
   background-color: black;
   color: #faff00;
-  width: 90vw;
-  height: 60px;
-}
-
-//CSS PARA LOGIN Y SIGN UP
+  width: 100%;
+  height: 60px; }
 
 .form-container {
   display: flex;
@@ -508,204 +418,156 @@ a {
   justify-content: center;
   align-items: center;
   margin: 40px;
-  height: 60vh;
-
-  input {
+  height: 60vh; }
+  .form-container input {
     margin: 5px;
     background-color: white;
     color: black;
     height: 60px;
     text-align: center;
     width: 90vw;
-    border: 0;
-  }
-  button {
+    border: 0; }
+  .form-container button {
     margin: 5px;
     font-size: 20px;
     border: none;
     background-color: black;
     color: #faff00;
     width: 90vw;
-    height: 60px;
-  }
-}
+    height: 60px; }
 
-// CSS PARA EL QR
 .camera-container {
   height: 70vh;
   overflow: hidden;
-  position: fixed;
-}
+  margin: 15px; }
 
 .readerqrtext {
-  position: fixed;
+  margin: 15px;
   top: 70vh;
-  z-index: 10;
-}
+  z-index: 10; }
 
 .qrcontainer {
-  position: fixed;
+  margin: 15px;
   z-index: -1;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: white;
-  width: 100vw;
-  height: 100vh;
-}
+  height: 100vh; }
+
 body,
 input {
   font-size: 14pt;
-  padding: 0;
-}
+  padding: 0; }
+
 input,
 label {
-  vertical-align: middle;
-}
+  vertical-align: middle; }
+
 .qrcode-text {
   padding-right: 1.7em;
-  margin-right: 0;
-}
+  margin-right: 0; }
+
 .qrcode-text-btn {
   display: inline-block;
-  background: url(//dab1nmslvvntp.cloudfront.net/wp-content/uploads/2017/07/1499401426qr_icon.svg)
-    50% 50% no-repeat;
+  background: url(//dab1nmslvvntp.cloudfront.net/wp-content/uploads/2017/07/1499401426qr_icon.svg) 50% 50% no-repeat;
   height: 1em;
   width: 1.7em;
   margin-left: -1.7em;
-  cursor: pointer;
-}
+  cursor: pointer; }
+
 .qrcode-text-btn > input[type="file"] {
   position: absolute;
   overflow: hidden;
   width: 1px;
   height: 1px;
-  opacity: 0;
-}
+  opacity: 0; }
 
-//CSS PARA OTRO QR
-#text {
-  // display: none;
-}
 #qrcode {
-  // width: 160px;
-  // height: 160px;
-  margin-top: 30px;
-}
-
-//CSS FORMULARIOS
+  margin-top: 30px; }
 
 .new-form {
   display: flex;
   flex-direction: column;
-  margin: 15px;
-  
-
-  input{
+  margin: 15px; }
+  .new-form input {
     background-color: black;
     color: white;
-    border: 2px solid rgb(138, 138, 138);
+    border: 2px solid #8a8a8a;
     margin-bottom: 5px;
     height: 40px;
     padding: 3px;
-    font-family: "Roboto";
-    font-size: 20px;
-  }
-  input[type=”file”]{
-    background-color: white ; 
-  }
-
-  textarea{
+    font-family: Ubuntu;
+    font-size: 20px; }
+  .new-form input[type=”file”] {
+    background-color: white; }
+  .new-form textarea {
     background-color: black;
     color: white;
-    border: 2px solid rgb(138, 138, 138);
+    border: 2px solid #8a8a8a;
     margin-bottom: 5px;
     height: 120px;
     padding: 3px;
-    font-family: "Roboto";
+    font-family: "Ubuntu";
     line-height: 1.4;
-    font-size: 20px;
-  }
-
-  select{
+    font-size: 20px; }
+  .new-form select {
     background-color: black;
     color: white;
-    border: 2px solid rgb(138, 138, 138);
+    border: 2px solid #8a8a8a;
     margin-bottom: 5px;
     border-radius: 0;
     height: 40px;
     padding: 3px;
-    font-family: "Roboto";
-    font-size: 20px;
-  }
+    font-family: "Ubuntu";
+    font-size: 20px; }
+  .new-form #meeting-time {
+    width: 100%; }
 
-  #meeting-time{
-    width: 100%,
-  }
-}
-
-
-
-
-
-//CSS PARA EL PERFIL
 .profile-detail {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  margin: 15px;
-
-  .profile-info{
+  margin: 15px; }
+  .profile-detail .profile-info {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 100%;
-  }
-
-  .profile-text{
+    height: 100%; }
+  .profile-detail .profile-text {
     width: 100%;
     height: 200px;
     line-height: 1.3;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    
-    h2{
+    justify-content: space-between; }
+    .profile-detail .profile-text h2 {
       font-size: 23px;
-      font-weight: bold;
-    }
+      font-weight: bold; }
+    .profile-detail .profile-text p {
+      font-size: 15px; }
 
-    p{
-      font-size: 15px;
-    }
-  }
-}
 .button-dark {
   font-size: 20px;
   border: none;
   background-color: black;
-  bottom: 0;
-  a{
+  bottom: 0; }
+  .button-dark a {
     color: #faff00;
-    text-align: center;
-  }
-}
+    text-align: center; }
 
 .detail-image {
-  width: 100%;
-}
+  width: 100%; }
 
 .image-result {
-  width: 100%;
-}
-
+  width: 100%; }
 
 .scan-result {
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -714,28 +576,27 @@ label {
   border-style: solid;
   border-color: #faff00;
   border-width: 15px;
-  padding-bottom: 10px;
-}
+  padding-bottom: 10px; }
+
 .star-result {
-  width: 100%;
-}
+  width: 100%; }
+
 #enhorabuena {
   font-weight: bold;
-  font-size: 22px;
-}
+  font-size: 22px; }
+
 .result-important {
   font-weight: bold;
-  color: red;
-}
+  color: red; }
+
 .scan-info {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   padding-bottom: 10px;
-  background-image: url("https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif");
-  h2 {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  }
-}
+  background-image: url("https://media.giphy.com/media/U3qYN8S0j3bpK/giphy.gif"); }
+  .scan-info h2 {
+    font-family: "Ubuntu"; }
+
+/*# sourceMappingURL=style.css.map */
