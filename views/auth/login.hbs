@@ -24,17 +24,19 @@
 </div>
 <form action="/auth/login" method="POST" class="form-container">
  <div>
-     <input id="username" type="text" name="username" placeholder="Nombre">
+    <h3>Inicio de sesión</h3>
+    
+    <input id="username" type="text" name="username" placeholder="Nombre">
 
-  <input id="password" type="password" name="password" placeholder="Contraseña">
+    <input id="password" type="password" name="password" placeholder="Contraseña">
 
   {{#if message }}
-    <div class="error-message">{{ message }}</div>
+    <section class="error-message">{{ message }}</section>
   {{/if}}
 
-  <button>Login</button>
+    <button>Iniciar sesión</button>
  </div>
 
 </form>
-<p class="update-pos">¿Aún no tienes una cuenta? &nbsp;<a href="/auth/signup">Signup</a></p> 
+<p class="update-pos">¿Aún no tienes una cuenta? &nbsp;<a href="/auth/signup">Regístrate</a></p> 
  

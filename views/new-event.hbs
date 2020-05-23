@@ -26,9 +26,12 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_62uCU28_3t0RlV0WVDdrGSg0xG0v4j4"></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_62uCU28_3t0RlV0WVDdrGSg0xG0v4j4&libraries=places"></script>
 
-
+ <div class="button-back">
+  <a href="/all-users">Lista Usuarios</a>
+</div>
 <div>
   <form action="/new-event" method="POST" class="new-form" enctype='multipart/form-data'>
+    <h3>Crear evento</h3>
     <input name="name" type="text" class="form-control" id="name-input" placeholder="Nombre">
     <textarea name="description" type="text" class="form-control" id="description-input" placeholder="Descripción"></textarea>
     <select name="type">
@@ -52,12 +55,10 @@
     <input name="levelRequiered" type="number" class="form-control" id="length-input" placeholder="Nivel requerido">
     <input name="discount" type="number" class="form-control" id="length-input" placeholder="Descuento">
     <input name="image" type="file" class="form-control" id="length-input" placeholder="Seleccionar imagen">
-    <button type="submit" class="btn-dark">Crear evento</button>
+    <button type="submit" class="btn-dark">Guardar</button>
   </form>
 </div>
- <div class="button-back">
-  <a href="/all-users">Lista Usuarios</a>
-</div>
+
 
 <div class="update-pos">
   <a href="/auth/logout">Cerrar sesión</a>

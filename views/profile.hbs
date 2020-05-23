@@ -88,6 +88,12 @@
 {{/each}}
 </div>
 
+ {{#is rol "Admin"}}
+  <div class="btn-back">
+    <a href="/all-users">Volver a listado</a>
+  </div>
+{{/is}}
+
 <div class="update-pos">
   <a href="/auth/logout">Cerrar sesión</a>
 </div>

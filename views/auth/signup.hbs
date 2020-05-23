@@ -23,6 +23,9 @@
   {{/unless}}
 </div>
 <form action="/auth/signup" method="POST" class="form-container">
+  <div>
+
+  <h3>Crear cuenta</h3>
 
   <input id="username" type="text" name="username" placeholder="Nombre">
 
@@ -31,11 +34,12 @@
   <input id="password" type="password" name="password" placeholder="Contraseña">
 
   {{#if message }}
-    <div class="error-message">{{ message }}</div>
+    <section class="error-message">{{ message }}</section>
   {{/if}}
 
   <button>Crear cuenta</button>
 
+  </div>
 </form>
 
-  <p class="update-pos">¿Ya tienes una cuenta? &nbsp;<a href="/auth/login">Login</a></p>
+  <p class="update-pos">¿Ya tienes una cuenta? &nbsp;<a href="/auth/login">Iniciar sesión</a></p>
